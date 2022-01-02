@@ -1,9 +1,8 @@
 # Job_check
 
-## サイト概要
-ユーザー登録  
-グルーブ作成・参加  
+## サイト概要  
 依頼された作業の内容登録・編集
+
 ### サイトテーマ
 仕事内容の管理
 
@@ -19,7 +18,7 @@ PCなどを使う場面が少ない製造業などで働く管理者、従業員
 作業に取り掛かる前、終わった後。仕事内容の振り返り。
 
 ## 設計書
-<...>
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1E4orAZzQ9OaX3uQagR78W9YPiPKav8jqwS5CrCLADJI/edit#gid=0
@@ -30,6 +29,3 @@ https://docs.google.com/spreadsheets/d/1E4orAZzQ9OaX3uQagR78W9YPiPKav8jqwS5CrCLA
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 
