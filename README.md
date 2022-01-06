@@ -30,7 +30,7 @@ PCなどを使う場面が少ない製造業などで働く管理者、従業員
 過去の作業などを参考にしたい時  
 
 ## 設計書
-
+https://docs.google.com/spreadsheets/d/1pZug1CW24o3Pwr_7XXJ-nJxepBVPXLTNfUt5CmMeLk4/edit#gid=2133469642
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1E4orAZzQ9OaX3uQagR78W9YPiPKav8jqwS5CrCLADJI/edit#gid=0
