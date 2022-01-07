@@ -9,4 +9,9 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  #管理者用
+  namespace :admin do
+    resources :wokers, only: [:index, :create, :edit, :update]
+  end
 end

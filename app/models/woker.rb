@@ -1,0 +1,2 @@
+class Woker < ApplicationRecord
+end
