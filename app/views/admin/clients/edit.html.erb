@@ -1,0 +1,25 @@
+<div>
+  <h2>取引先会社編集</h2>
+  <div>
+    <%= form_with model:@client, url:admin_client_path, method: :patch, local:true do |f| %>
+      <label for="name">会社名</label>
+      <%= f.text_field :name, placeholder: "会社名を入力" %>
+
+      <label for="zipcode">郵便番号</label>
+      <%= f.text_field :zipcode, placeholder: "郵便番号を入力" %>
+
+      <label for="address">住所</label>
+      <%= f.text_field :address, placeholder: "住所を入力" %>
+
+      <label for="phone_number">電話番号</label>
+      <%= f.text_field :phone_number, placeholder: "電話番号を入力" %>
+
+      <label for="supervisor">担当者名</label>
+      <%= f.text_field :supervisor, placeholder: "担当者名を入力" %>
+
+      <label for="supervisor_phone_number">担当者電話番号</label>
+      <%= f.text_field :supervisor_phone_number, placeholder: "電話番号を入力" %>
+      <%= f.submit ' 登録 ' %>
+    <% end %>
+  </div>
+</div>

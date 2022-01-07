@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   #管理者用
   namespace :admin do
     resources :wokers, only: [:index, :create, :edit, :update]
+    resources :clients, only: [:index, :create, :edit, :update]
   end
 end
