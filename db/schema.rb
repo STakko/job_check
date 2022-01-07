@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_081103) do
+ActiveRecord::Schema.define(version: 2022_01_07_111332) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 2022_01_07_081103) do
     t.string "supervisor_phone_number", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer "woker_id"
+    t.integer "client_id"
+    t.string "name", default: "", null: false
+    t.text "body", default: "", null: false
+    t.string "image_id"
+    t.integer "work_status", default: 0, null: false
+    t.time "strat_time"
+    t.time "finish_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_records_on_client_id"
+    t.index ["woker_id"], name: "index_records_on_woker_id"
   end
 
   create_table "shared_users", force: :cascade do |t|
