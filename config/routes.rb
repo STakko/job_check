@@ -15,4 +15,9 @@ Rails.application.routes.draw do
     resources :wokers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
   end
+  
+  #共同アカウント
+  namespace :public do
+    resources :records, except: [:destroy]
+  end
 end
