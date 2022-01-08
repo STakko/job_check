@@ -20,10 +20,6 @@ class Public::RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
-  def edit
-    @record = Record.find(params[:id])
-  end
-
   def update
     record = Record.find(params[:id])
     if record.update(record_params)
