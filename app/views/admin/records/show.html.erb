@@ -51,6 +51,10 @@
             </td>
           </tr>
           <% end %>
+          <tr>
+            <td>作業フェーズ</td>
+            <td><%= @record.work_status_i18n %></td>
+          </tr>
         </tbody>
       </table>
       <%= link_to "編集する", edit_admin_record_path(@record) %>

@@ -24,6 +24,6 @@ class Admin::RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time)
+    params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time, :work_status)
   end
 end
