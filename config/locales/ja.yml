@@ -1,0 +1,8 @@
+ ja:
+    enums:
+      record:
+        work_status:
+          waiting_work: "作業準備中"
+          start_work: "作業中"
+          finish_work: "作業完了-未確認-"
+          confirmed_work: "作業完了-確認済-"

@@ -28,5 +28,5 @@
 
 <% if record.start_time != nil && record.finish_time != nil %>
 <p>作業時間</p>
-  <%= (record.finish_time - record.start_time).to_i / 3600.0 %>時間
+  <%= ((record.finish_time - record.start_time).to_i / 3600.0).round(1) %>時間
 <% end %>

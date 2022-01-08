@@ -22,17 +22,19 @@ class Public::RecordsController < ApplicationController
 
   def update
     record = Record.find(params[:id])
-    if record.update(record_params)
-      redirect_to public_record_path(record)
-    else
-      render :edit
+    record.update(record_params)
+    if record.work_status == 'waiting_work'
+      record.update(work_status: 1)
+    elsif record.work_status == 'start_work'
+      record.update(work_status: 2)
     end
+    redirect_to public_record_path(record)
   end
 
   private
 
   def record_params
-    params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time)
+    params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time, :work_status)
   end
 
 end
