@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :wokers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
+    resources :records, except: [:create]
   end
   
   #共同アカウント
   namespace :public do
-    resources :records, except: [:destroy]
+    resources :records, except: [:destroy, :edit]
   end
 end
