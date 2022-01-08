@@ -1,1 +1,36 @@
-show
+<div>
+  <h3><%= @record.name %></h3>
+  <div>
+    <div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>取引先</td>
+            <td><%= @record.client.name %></td>
+          </tr>
+          <tr>
+            <td>作業者</td>
+            <td><%= @record.woker.name %></td>
+          </tr>
+          <tr>
+            <td>作業内容</td>
+            <td><%= @record.body %></td>
+          </tr>
+          <tr>
+            <td>写真</td>
+            <td>
+              <div class="image">
+                <%= attachment_image_tag @record, :image, :fill, 250, 220, fallback: "", size: "250x220" %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>作業登録日時</td>
+            <td><%= @record.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div><%= render 'time', record: @record %></div>
+    </div>
+  </div>
+</div>
