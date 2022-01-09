@@ -32,6 +32,13 @@
       </table>
       <div><%= render 'time', record: @record %></div>
       作業フェーズ<%= @record.work_status_i18n %>
+      <div><%= render 'admin/records/comment', record: @record %></div>
+      <div>
+        <%= form_with model:[@record, @record_comment], url: public_record_record_comments_path(@record), local: true do |f| %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+          <%= f.submit "コメント" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,6 @@
+<div>
+<% record.record_comments.each do |record_comment| %>
+  <%= record_comment.comment %>
+  <%= record_comment.created_at.strftime('%Y/%m/%d') %>
+<% end %>
+</div>

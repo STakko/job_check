@@ -1,7 +1,9 @@
 class Record < ApplicationRecord
+  belongs_to :shared_users
   belongs_to :woker
   belongs_to :client
   attachment :image
-  
+  has_many :record_comments, dependent: :destroy
+
   enum work_status: {waiting_work: 0, start_work: 1, finish_work: 2, confirmed_work: 3}
 end
