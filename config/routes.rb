@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   #管理者用
   namespace :admin do
-    resources :wokers, only: [:index, :create, :edit, :update]
+    resources :workers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
     resources :records, except: [:create] do
       resources :admin_comments, only: [:create, :destroy]
@@ -26,4 +26,6 @@ Rails.application.routes.draw do
       resources :public_comments, only: [:create, :destroy]
     end
   end
+
+  get 'p_worker_search', to: 'public/records#worker_search'
 end
