@@ -21,7 +21,7 @@ class Admin::RecordsController < ApplicationController
       render :edit
     end
   end
-
+  
   private
 
   def record_params

@@ -1,22 +1,13 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th>取引先名</th>
-      <th>作業者</th>
-      <th>作業名</th>
-      <th>作業フェーズ</th>
-      <th>作成日時</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @records.each do |record| %>
-      <tr>
-        <td><%= record.client.name %></td>
-        <td><%= record.woker.name %></td>
-        <td><%= link_to record.name, public_record_path(record) %></td>
-        <td><%= record.work_status_i18n %></td>
-        <td><%= record.created_at.strftime('%Y/%m/%d') %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= search_form_for @search, url: public_records_path, local: true do |f| %>
+  <%= f.collection_select :name, Woker.ids, :name, :id , include_blank: '作業者' %>
+  <%= f.submit '作業者で検索' %>
+<% end %>
+<%= search_form_for @search, url: public_records_path, local: true do |f| %>
+  <%= f.collection_select :name, Client.all, :name, :name , include_blank: '取引先' %>
+  <%= f.submit '取引先で検索' %>
+<% end %>
+<% if @search_records %>
+  <%= render 'index', records: @search_records %>
+<% else %>
+  <%= render 'index', records: Record.all.order(created_at: :desc) %>
+<% end %>

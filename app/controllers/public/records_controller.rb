@@ -1,6 +1,9 @@
 class Public::RecordsController < ApplicationController
+
   def index
-    @records = Record.all
+    @search = Woker.ransack(params[:q])
+    @search = Client.ransack(params[:q])
+    @search_records = @search.result.order(created_at: :desc)
   end
 
   def new
