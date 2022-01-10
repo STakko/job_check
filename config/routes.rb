@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   #共同アカウント
   namespace :public do
-    resources :records, except: [:destroy, :edit]
+    resources :records, except: [:destroy, :edit] do
+      resources :public_comments, only: [:create, :destroy]
+    end
   end
 end
