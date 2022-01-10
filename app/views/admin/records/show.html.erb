@@ -55,6 +55,18 @@
             <td>作業フェーズ</td>
             <td><%= @record.work_status_i18n %></td>
           </tr>
+          <% if @record.confirmationed_by?(@record) %>
+          <tr>
+            <td>確認を取り消す</td>
+            <td><%= link_to "確認を取り消す", admin_record_confirmation_path(@record), method: :delete %></td>
+          </tr>
+          <% else %>
+          <tr>
+            <td>確認する</td>
+            <td><%= link_to "確認する", admin_record_confirmation_path(@record), method: :post %></td>
+          </tr>
+          <% end %>
+          
         </tbody>
       </table>
       <%= link_to "編集する", edit_admin_record_path(@record) %>

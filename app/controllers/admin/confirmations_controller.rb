@@ -1,30 +1,17 @@
-# frozen_string_literal: true
+class Admin::ConfirmationsController < ApplicationController
+  def create
+    record = Record.find(params[:record_id])
+    confirmation = Confirmation.new(record_id: record.id)
+    confirmation.save
+    record.update(work_status: 3)
+    redirect_to admin_record_path(record)
+  end
 
-class Admin::ConfirmationsController < Devise::ConfirmationsController
-  # GET /resource/confirmation/new
-  # def new
-  #   super
-  # end
-
-  # POST /resource/confirmation
-  # def create
-  #   super
-  # end
-
-  # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
-
-  # protected
-
-  # The path used after resending confirmation instructions.
-  # def after_resending_confirmation_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
-
-  # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource)
-  # end
+  def destroy
+    record = Record.find(params[:record_id])
+    confirmation = Confirmation.find_by(record_id: record.id)
+    confirmation.destroy
+    record.update(work_status: 2)
+    redirect_to admin_record_path(record)
+  end
 end
