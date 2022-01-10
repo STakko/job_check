@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :workers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
+    resources :events
     resources :records, except: [:create] do
       resources :admin_comments, only: [:create, :destroy]
       resource :confirmation, only: [:create, :destroy]
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   
   get 'a_worker_search', to: 'admin/records#worker_search'
   get 'a_client_search', to: 'admin/records#client_search'
-
   #共同アカウント
   namespace :public do
     resources :records, except: [:destroy, :edit] do
