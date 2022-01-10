@@ -38,7 +38,12 @@ class Public::RecordsController < ApplicationController
 
   def worker_search
     @q = Record.search(search_params)
-    @records = @q.result(distinct: true)
+    @records = @q.result(distinct: true).order(created_at: :desc)
+  end
+
+  def client_search
+    @q = Record.search(search_params)
+    @records = @q.result(distinct: true).order(created_at: :desc)
   end
 
 
@@ -49,7 +54,7 @@ class Public::RecordsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:worker_id_eq)
+    params.require(:q).permit(:worker_id_eq, :client_id_eq)
   end
 
 end

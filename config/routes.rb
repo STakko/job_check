@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       resource :confirmation, only: [:create, :destroy]
     end
   end
+  
+  get 'a_worker_search', to: 'admin/records#worker_search'
+  get 'a_client_search', to: 'admin/records#client_search'
 
   #共同アカウント
   namespace :public do
@@ -28,4 +31,5 @@ Rails.application.routes.draw do
   end
 
   get 'p_worker_search', to: 'public/records#worker_search'
+  get 'p_client_search', to: 'public/records#client_search'
 end

@@ -1,10 +1,12 @@
-<%= search_form_for(@q, url: p_worker_search_path) local: true do |f| %>
+<%= search_form_for @q, url: p_worker_search_path, local: true do |f| %>
   <%= f.label :worker_id_eq, '作業者' %>
   <%= f.collection_select :worker_id_eq, @workers, :id, :name , include_blank: '指定なし' %>
   <%= f.submit '作業者で検索' %>
 <% end %>
-<%= search_form_for @q, url: p_worker_search_path, local: true do |f| %>
-  <%= f.collection_select :client_id_eq, @clients, :id, :name , include_blank: '取引先' %>
+
+<%= search_form_for @q, url: p_client_search_path, local: true do |f| %>
+  <%= f.label :client_id_eq, '取引先' %>
+  <%= f.collection_select :client_id_eq, @clients, :id, :name , include_blank: '指定なし' %>
   <%= f.submit '取引先で検索' %>
 <% end %>
 <%= render 'index', records: Record.all.order(created_at: :desc) %>

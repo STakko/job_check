@@ -12,7 +12,7 @@
     <% records.each do |record| %>
       <tr>
         <td><%= record.client.name %></td>
-        <td><%= record.woker.name %></td>
+        <td><%= record.worker.name %></td>
         <td><%= link_to record.name, admin_record_path(record) %></td>
         <td><%= record.work_status_i18n %></td>
         <td><%= record.created_at.strftime('%Y/%m/%d') %></td>
