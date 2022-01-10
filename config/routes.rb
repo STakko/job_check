@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'a_client_search', to: 'admin/records#client_search'
   #共同アカウント
   namespace :public do
+    resources :events, only: [:index, :show]
     resources :records, except: [:destroy, :edit] do
       resources :public_comments, only: [:create, :destroy]
     end
