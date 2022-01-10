@@ -1,6 +1,10 @@
 class Public::RecordsController < ApplicationController
+
   def index
-    @records = Record.all
+      @q = Record.ransack(params[:q])
+      @workers = Worker.all
+      @clients = Client.all
+      @records = @q.result.includes(:worker, :client).order(created_at: :desc)
   end
 
   def new
@@ -32,10 +36,25 @@ class Public::RecordsController < ApplicationController
     redirect_to public_record_path(record)
   end
 
+  def worker_search
+    @q = Record.search(search_params)
+    @records = @q.result(distinct: true).order(created_at: :desc)
+  end
+
+  def client_search
+    @q = Record.search(search_params)
+    @records = @q.result(distinct: true).order(created_at: :desc)
+  end
+
+
   private
 
   def record_params
-    params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time, :work_status)
+    params.require(:record).permit(:name, :body, :worker_id, :client_id, :image, :start_time, :finish_time, :work_status)
+  end
+
+  def search_params
+    params.require(:q).permit(:worker_id_eq, :client_id_eq)
   end
 
 end

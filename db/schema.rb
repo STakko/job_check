@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_073219) do
+ActiveRecord::Schema.define(version: 2022_01_10_131836) do
 
   create_table "admin_comments", force: :cascade do |t|
     t.text "comment"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_01_10_073219) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer "woker_id"
+    t.integer "worker_id"
     t.integer "client_id"
     t.string "name", default: "", null: false
     t.text "body", default: "", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_01_10_073219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_records_on_client_id"
-    t.index ["woker_id"], name: "index_records_on_woker_id"
+    t.index ["worker_id"], name: "index_records_on_worker_id"
   end
 
   create_table "shared_users", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2022_01_10_073219) do
     t.index ["reset_password_token"], name: "index_shared_users_on_reset_password_token", unique: true
   end
 
-  create_table "wokers", force: :cascade do |t|
+  create_table "workers", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

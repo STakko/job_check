@@ -12,13 +12,16 @@ Rails.application.routes.draw do
 
   #管理者用
   namespace :admin do
-    resources :wokers, only: [:index, :create, :edit, :update]
+    resources :workers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
     resources :records, except: [:create] do
       resources :admin_comments, only: [:create, :destroy]
       resource :confirmation, only: [:create, :destroy]
     end
   end
+  
+  get 'a_worker_search', to: 'admin/records#worker_search'
+  get 'a_client_search', to: 'admin/records#client_search'
 
   #共同アカウント
   namespace :public do
@@ -26,4 +29,7 @@ Rails.application.routes.draw do
       resources :public_comments, only: [:create, :destroy]
     end
   end
+
+  get 'p_worker_search', to: 'public/records#worker_search'
+  get 'p_client_search', to: 'public/records#client_search'
 end

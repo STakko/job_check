@@ -1,5 +1,5 @@
 class Record < ApplicationRecord
-  belongs_to :woker
+  belongs_to :worker
   belongs_to :client
   attachment :image
   has_many :admin_comments, dependent: :destroy
