@@ -8,10 +8,8 @@ class Admin::AdminCommentsController < ApplicationController
   end
 
   def destroy
-    record = Record.find(params[:record_id])
-    admin_comment = AdminComment.find(params[:id])
-    admin_comment.destroy
-    redirect_to admin_record_path(record.id)
+    AdminComment.find_by(id: params[:id], record_id: params[:record_id]).destroy
+    redirect_to admin_record_path(params[:record_id])
   end
 
   private
