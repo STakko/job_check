@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_055922) do
+ActiveRecord::Schema.define(version: 2022_01_10_073219) do
 
   create_table "admin_comments", force: :cascade do |t|
     t.text "comment"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 2022_01_10_055922) do
     t.string "phone_number", default: "", null: false
     t.string "supervisor", default: ""
     t.string "supervisor_phone_number", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "confirmations", force: :cascade do |t|
+    t.integer "record_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

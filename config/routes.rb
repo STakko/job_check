@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :clients, only: [:index, :create, :edit, :update]
     resources :records, except: [:create] do
       resources :admin_comments, only: [:create, :destroy]
+      resource :confirmation, only: [:create, :destroy]
     end
   end
 
