@@ -6,6 +6,7 @@ class Admin::RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @admin_comment = AdminComment.new
   end
 
   def edit

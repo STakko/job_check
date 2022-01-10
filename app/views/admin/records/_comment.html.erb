@@ -1,0 +1,8 @@
+<div>
+<% record.admin_comments.each do |admin_comment| %>
+  <p>管理者からの</p>
+  <%= admin_comment.comment %>
+  <%= admin_comment.created_at.strftime('%Y/%m/%d') %>
+  <%= link_to "削除", admin_record_admin_comment_path(admin_comment.record, admin_comment), method: :delete %>
+<% end %>
+</div>
