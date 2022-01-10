@@ -58,6 +58,13 @@
         </tbody>
       </table>
       <%= link_to "編集する", edit_admin_record_path(@record) %>
+      <div><%= render 'comment', record: @record, admin_comment: @admin_comment %></div>
+      <div>
+        <%= form_with model:[@record, @admin_comment], url: admin_record_admin_comments_path(@record), local: true do |f| %>
+          <%= f.text_area :comment,placeholder: "コメントをここに" %>
+          <%= f.submit "コメント" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
