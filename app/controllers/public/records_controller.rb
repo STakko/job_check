@@ -18,6 +18,7 @@ class Public::RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @public_comment = PublicComment.new
   end
 
   def update
