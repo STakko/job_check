@@ -35,7 +35,7 @@
       <div><%= render 'a_comment', record: @record %></div>
       <div><%= render 'p_comment', record: @record %></div>
       <div>
-        <%= form_with model:[@record, @public_comment], url: public_record_public_comments_path(@record), local: true do |f| %>
+        <%= form_with model:[@record, @public_comment], url: record_public_comments_path(@record), local: true do |f| %>
           <%= f.text_area :comment,placeholder: "コメントをここに" %>
           <%= f.submit "コメント" %>
         <% end %>

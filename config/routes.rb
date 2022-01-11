@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   #管理者用
   namespace :admin do
+    get '/', to: 'homes#top'
     resources :workers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
     resources :events
@@ -28,7 +29,8 @@ Rails.application.routes.draw do
   get 'a_worker_search', to: 'admin/records#worker_search'
   get 'a_client_search', to: 'admin/records#client_search'
   #共同アカウント
-  namespace :public do
+  scope module: :public do
+    root to: 'homes#top'
     resources :events, only: [:index, :show]
     resources :records, except: [:destroy, :edit] do
       resources :public_comments, only: [:create, :destroy]
