@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem "enum_help"
 gem 'ransack'
 gem 'simple_calendar', '~> 2.0'
+gem "dotenv-rails"

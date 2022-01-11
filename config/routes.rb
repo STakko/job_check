@@ -15,12 +15,16 @@ Rails.application.routes.draw do
     resources :workers, only: [:index, :create, :edit, :update]
     resources :clients, only: [:index, :create, :edit, :update]
     resources :events
+    resources :contacts, only: [:new, :create]
+    post 'contacts/confirm', to: 'contacts#confirm'
+    post 'contacts/back', to: 'contacts#back'
+    get 'done', to: 'contacts#done', as: 'done'
     resources :records, except: [:create] do
       resources :admin_comments, only: [:create, :destroy]
       resource :confirmation, only: [:create, :destroy]
     end
   end
-  
+
   get 'a_worker_search', to: 'admin/records#worker_search'
   get 'a_client_search', to: 'admin/records#client_search'
   #共同アカウント
