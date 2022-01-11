@@ -1,7 +1,7 @@
 <div>
   <h2>作業記録新規登録</h2>
   <div>
-    <%= form_with model:@record, url:public_records_path, local:true do |f| %>
+    <%= form_with model:@record, url:records_path, local:true do |f| %>
       <label for="name">作業名</label>
       <%= f.text_field :name, placeholder: "作業名を入力" %>
       <label for="woker">作業者</label>

@@ -1,5 +1,5 @@
 <% if record.start_time == nil %>
-  <%= form_with model:record, url:public_record_path(record), local:true do |f| %>
+  <%= form_with model:record, url:record_path(record), local:true do |f| %>
     <%= f.hidden_field :record, value: record %>
     <%= f.hidden_field :start_time, value: Time.now %>
     <%= f.submit "作業開始" %>
@@ -7,7 +7,7 @@
 <% end %>
 
 <% if record.start_time != nil && record.finish_time == nil %>
-  <%= form_with model:record, url:public_record_path(record), local:true do |f| %>
+  <%= form_with model:record, url:record_path(record), local:true do |f| %>
     <%= f.hidden_field :record, value: record %>
     <%= f.hidden_field :finish_time, value: Time.now %>
     <%= f.submit "作業終了" %>
