@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'homes#top'
     resources :workers, only: [:index, :create, :edit, :update]
-    resources :clients, only: [:index, :create, :edit, :update]
+    resources :clients, only: [:index, :create, :show, :edit, :update]
     resources :events
     resources :contacts, only: [:new, :create]
     post 'contacts/confirm', to: 'contacts#confirm'

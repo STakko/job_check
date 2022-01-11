@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <h2><%= @client.name %>詳細</h2>
+  <div class="col-10 offset-1 pt-3">
+      <table class="table table-striped">
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @client.zipcode%></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @client.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @client.phone_number %></td>
+        </tr>
+        <tr>
+          <td>担当者名</td>
+          <td><%= @client.supervisor %></td>
+        </tr>
+        <tr>
+          <td>担当者電話番号</td>
+          <td><%= @client.supervisor_phone_number %></td>
+        </tr>
+      </table>
+      <div class="mx-auto" style"width: 200px">
+        <%= link_to '編集', edit_admin_client_path(@client.id), class: "btn btn-warning" %>
+      </div>
+      <%= link_to :back do %>
+        <button class="btn btn-dark">戻る</button>
+      <% end %>
+  </div>
+</div>
