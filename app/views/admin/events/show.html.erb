@@ -1,0 +1,5 @@
+<%= @event.title %>
+<%= @event.worker.name %>
+<%= @event.content %>
+<%= @event.start_time.strftime('%H:%M') %>
+<%= link_to '編集', edit_admin_event_path %>

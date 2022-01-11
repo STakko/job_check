@@ -1,0 +1,27 @@
+<%= form_with model: @event, url: admin_event_path, local: true do |f| %>
+  <div class="worker_id">
+  <%= f.label :作業者 %>
+  <%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %>
+  </div>
+  
+  <div class="title">
+    <%= f.label :要件 %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="content">
+    <%= f.label :内容 %>
+    <%= f.text_field :content %>
+  </div>
+  
+  <div class="time">
+    <%= f.label :予定時刻 %>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+
+  <div class="submit">
+    <%= f.submit '登録' %>
+  </div>
+
+<% end %>

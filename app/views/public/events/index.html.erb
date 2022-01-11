@@ -1,0 +1,16 @@
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+  <% events.each do |event| %>
+    <%= event.title %>
+    <%= event.worker.name %>
+    <%= event.content %>
+    <%= event.start_time.strftime('%H:%M') %>
+  <% end %>
+<% end %>
+
+<% @events.each do |event| %>
+    <%= event.title %>
+    <%= event.worker.name %>
+    <%= event.content %>
+    <%= event.start_time.strftime('%H:%M:%S') %>
+<% end %>
