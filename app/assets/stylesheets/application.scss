@@ -15,3 +15,15 @@
  *= require_self
  */
  @import "bootstrap";
+
+//header
+ .namazu_bousai {
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  background-image: image-url('namazu_bousai.png');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}

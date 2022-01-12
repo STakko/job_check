@@ -1,7 +1,7 @@
-<div>
-  <h3><%= @record.name %></h3>
-  <div>
-    <div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2 class="mt-4"><%= @record.name %></h2>
       <table class="table">
         <tbody>
           <tr>
@@ -18,11 +18,15 @@
           </tr>
           <tr>
             <td>写真</td>
+            <% if @record.image != nil %>
             <td>
               <div class="image">
                 <%= attachment_image_tag @record, :image, :fill, 250, 220, fallback: "", size: "250x220" %>
               </div>
             </td>
+            <% else %>
+            <td>写真はありません</td>
+            <% end %>
           </tr>
           <tr>
             <td>作業登録日時</td>
@@ -51,31 +55,40 @@
             </td>
           </tr>
           <% end %>
+
           <tr>
             <td>作業フェーズ</td>
             <td><%= @record.work_status_i18n %></td>
           </tr>
-          <% if @record.confirmationed_by?(@record) %>
-          <tr>
-            <td>確認を取り消す</td>
-            <td><%= link_to "確認を取り消す", admin_record_confirmation_path(@record), method: :delete %></td>
-          </tr>
-          <% else %>
-          <tr>
-            <td>確認する</td>
-            <td><%= link_to "確認する", admin_record_confirmation_path(@record), method: :post %></td>
-          </tr>
+          <% if @record.work_status == 'finish_work' || @record.work_status == 'confirmed_work' %>
+            <% if @record.confirmationed_by?(@record) %>
+            <tr>
+              <td>確認取消</td>
+              <td><%= link_to "取消", admin_record_confirmation_path(@record), method: :delete, class:"btn btn-outline-danger" %></td>
+            </tr>
+            <% else %>
+            <tr>
+              <td>確認する</td>
+              <td><%= link_to "確認", admin_record_confirmation_path(@record), method: :post, class:"btn btn-outline-success" %></td>
+            </tr>
+            <% end %>
           <% end %>
-          
+          <tr>
+            <td><%= link_to :back do %><button class="btn btn-dark">戻る</button><% end %></td>
+            <td><%= link_to "編集", edit_admin_record_path(@record), class:"btn btn-warning" %></td>
+          </tr>
         </tbody>
       </table>
-      <%= link_to "編集する", edit_admin_record_path(@record) %>
-      <div><%= render 'p_comment', record: @record %></div>
-      <div><%= render 'a_comment', record: @record %></div>
-      <div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'p_comment', record: @record %>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'a_comment', record: @record %>
+      <div class="form-group">
         <%= form_with model:[@record, @admin_comment], url: admin_record_admin_comments_path(@record), local: true do |f| %>
-          <%= f.text_area :comment,placeholder: "コメントをここに" %>
-          <%= f.submit "コメント" %>
+          <%= f.text_field :comment,placeholder: "コメントをここに", class:"form-control"%>
+          <%= f.submit "送信", class:"btn btn-outline-success" %>
         <% end %>
       </div>
     </div>

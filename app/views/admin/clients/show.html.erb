@@ -1,6 +1,7 @@
 <div class="container py-5">
-  <h2><%= @client.name %>詳細</h2>
-  <div class="col-10 offset-1 pt-3">
+  <div class="row">
+    <div class="col-10 offset-1 pt-3">
+      <h2 class="mt-4"><%= @client.name %>詳細</h2>
       <table class="table table-striped">
         <tr>
           <td>郵便番号</td>
@@ -22,12 +23,11 @@
           <td>担当者電話番号</td>
           <td><%= @client.supervisor_phone_number %></td>
         </tr>
+        <tr>
+          <td><%= link_to '戻る', admin_clients_path, class: "btn btn-dark" %></td>
+          <td><%= link_to '編集', edit_admin_client_path(@client.id), class: "btn btn-warning" %></td>
+        </tr>
       </table>
-      <div class="mx-auto" style"width: 200px">
-        <%= link_to '編集', edit_admin_client_path(@client.id), class: "btn btn-warning" %>
-      </div>
-      <%= link_to :back do %>
-        <button class="btn btn-dark">戻る</button>
-      <% end %>
+    </div>
   </div>
 </div>

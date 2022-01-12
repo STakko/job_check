@@ -1,27 +1,31 @@
-<%= form_with model: @event, url: admin_event_path, local: true do |f| %>
-  <div class="worker_id">
-  <%= f.label :作業者 %>
-  <%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %>
+<div class="container">
+  <div class"row">
+    <div class="col-6 mx-auto">
+      <h2 class="mt-4">予定編集</h2>
+      <table class="table">
+        <%= form_with model: @event, url: admin_event_path, local: true do |f| %>
+        <tr>
+          <td>作業者</td>
+          <td><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
+        </tr>
+        <tr>
+          <td>要件</td>
+          <td><%= f.text_field :title %></td>
+        </tr>
+        <tr>
+          <td>内容</td>
+          <td><%= f.text_area :content, size:'50x4' %></td>
+        </tr>
+        <tr>
+          <td>予定時刻</td>
+          <td><%= f.datetime_select :start_time %></td>
+        </tr>
+        <tr>
+          <td><%= link_to '戻る', admin_event_path(@event), class:"btn btn-outline-dark" %></td>
+          <td><%= f.submit '変更を保存', class:"btn btn-outline-success" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
-  
-  <div class="title">
-    <%= f.label :要件 %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="content">
-    <%= f.label :内容 %>
-    <%= f.text_field :content %>
-  </div>
-  
-  <div class="time">
-    <%= f.label :予定時刻 %>
-    <%= f.datetime_select :start_time %>
-  </div>
-
-
-  <div class="submit">
-    <%= f.submit '登録' %>
-  </div>
-
-<% end %>
+</div>

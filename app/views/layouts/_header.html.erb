@@ -1,1 +1,33 @@
-ヘッダー
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container">
+      <h1 class="application-name">JOB</h1>
+      <%= link_to root_path do %><div class="namazu_bousai"></div><% end %>
+      <h1 class="application-name">CHECK</h1>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        <% if shared_user_signed_in? %>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        <% elsif admin_signed_in? %>
+          <li><%= link_to '作業記録一覧', admin_records_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to '作業者一覧', admin_workers_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to '取引先一覧', admin_clients_path, class: 'nav-link text-light'%></li>
+          <li><%= link_to 'スケジュール', admin_events_path, class: 'nav-link text-light'%></li>
+          <li><%= link_to 'お問い合わせ', new_admin_contact_path, class: 'nav-link text-light'%></li>
+          <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %></li>
+        <% else %>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -2,7 +2,7 @@
   <%= form_with model:record, url:record_path(record), local:true do |f| %>
     <%= f.hidden_field :record, value: record %>
     <%= f.hidden_field :start_time, value: Time.now %>
-    <%= f.submit "作業開始" %>
+    <%= f.submit "作業開始", class:"btn btn-primary" %>
   <% end %>
 <% end %>
 
@@ -10,7 +10,7 @@
   <%= form_with model:record, url:record_path(record), local:true do |f| %>
     <%= f.hidden_field :record, value: record %>
     <%= f.hidden_field :finish_time, value: Time.now %>
-    <%= f.submit "作業終了" %>
+    <%= f.submit "作業終了", class:"btn btn-danger" %>
   <% end %>
 <% end %>
 

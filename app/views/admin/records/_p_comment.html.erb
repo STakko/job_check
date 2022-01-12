@@ -1,8 +1,14 @@
-<div>
-<% record.public_comments.each do |public_comment| %>
-  <%= public_comment.record.worker.name %>さんからのコメント
-  <%= public_comment.comment %>
-  <%= public_comment.created_at.strftime('%Y/%m/%d') %>
-  <%= link_to "削除", public_record_public_comment_path(public_comment.record, public_comment), method: :delete %>
-<% end %>
-</div>
+<table class="table mt-5">
+  <thead class="thead-info">
+    <th colspan="2"><%= record.worker.name %>さんからのコメント</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% record.public_comments.each do |public_comment| %>
+    <tr>
+      <td colspan="2"><%= public_comment.comment %></td>
+      <td><%= link_to "削除", public_record_public_comment_path(public_comment.record, public_comment),  method: :delete, class:"btn btn-outline-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

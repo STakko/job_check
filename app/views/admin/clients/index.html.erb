@@ -1,23 +1,23 @@
 <div class="container">
-  <div class"row">
+  <div class="row">
     <div class="col-lg-6">
-      <h2 class="pb-5">取引先会社一覧・追加</h2>
+      <h2 class="mt-4">取引先会社一覧・追加</h2>
       <%= form_with model:@client, url:admin_clients_path, local:true do |f| %>
         <label for="name">会社名</label><br>
         <%= f.text_field :name, placeholder: "会社名を入力" %><br>
-        
+
         <label for="zipcode">郵便番号</label><br>
         <%= f.text_field :zipcode, placeholder: "郵便番号を入力" %><br>
-        
+
         <label for="address">住所</label><br>
         <%= f.text_field :address, placeholder: "住所を入力", size: "50" %><br>
-        
+
         <label for="phone_number">電話番号</label><br>
         <%= f.text_field :phone_number, placeholder: "電話番号を入力" %><br>
-        
+
         <label for="supervisor">担当者名</label><br>
         <%= f.text_field :supervisor, placeholder: "担当者名を入力" %><br>
-        
+
         <label for="supervisor_phone_number">担当者電話番号</label><br>
         <%= f.text_field :supervisor_phone_number, placeholder: "電話番号を入力" %><br>
         <br>
@@ -25,37 +25,9 @@
       <% end %>
     </div>
     <div class="col-lg-6">
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th>会社名</th>
-            <th>電話番号</th>
-            <th>担当者名</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @clients.each do |client| %>
-          <tr>
-            <td>
-              <%= link_to admin_client_path(client) do %>
-                <%= client.name %>
-              <% end %>
-            </td>
-            <td>
-              <%= client.phone_number %>
-            </td>
-            <td>
-              <%= client.supervisor %>
-            </td>
-            <td>
-              <%= link_to '編集', edit_admin_client_path(client.id), class: "btn btn-warning" %>
-            </td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+      <div class="mt-5">
+        <%= render 'index', clients: Client.all.order(created_at: :desc) %>
+      </div>
     </div>
   </div>
 </div>
