@@ -1,16 +1,39 @@
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.day %>
-  <% events.each do |event| %>
-    <%= event.title %>
-    <%= event.worker.name %>
-    <%= event.content %>
-    <%= event.start_time.strftime('%H:%M') %>
-  <% end %>
-<% end %>
-
-<% @events.each do |event| %>
-    <%= event.title %>
-    <%= event.worker.name %>
-    <%= event.content %>
-    <%= event.start_time.strftime('%H:%M:%S') %>
-<% end %>
+<div class="container-fluid">
+  <div class="row align-items-start">
+    <div class="col-lg-8">
+      <h2 class="mt-4 ml-5">スケジュール</h2>
+      <div>
+        <%= month_calendar events: @events do |date, events| %>
+          <%= date.day %><br>
+          <% events.each do |event| %>
+            <%= link_to event_path(event) do %><%= event.title %><% end %>
+            <%= event.start_time.strftime('%H:%M') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="mt-5">
+        <h2>予定一覧</h2>
+      </div>
+      <div>
+        <table class="table">
+          <thead class="thead-dark">
+            <th>作業者</th>
+            <th>要件</th>
+            <th>時刻</th>
+          </thead>
+          <tbody>
+            <% @events.each do |event| %>
+              <tr>
+                <td><%= event.worker.name %></td>
+                <td><%= link_to event_path(event) do %><%= event.title %><% end %></td>
+                <td><%= event.start_time.strftime('%H:%M:%S') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,41 +1,54 @@
-<table>
-  <tbody>
-    <tr>
-      <td class="text-center" style="width: 30%;">お名前</td>
-      <td><%= @contact.name %></td>
-    </tr>
-    <tr>
-      <td class="text-center">メッセージ</td>
-      <td style="white-space: pre-wrap;"><%= @contact.email %></td>
-    </tr>
-    <tr>
-      <td class="text-center">メッセージ</td>
-      <td style="white-space: pre-wrap;"><%= @contact.phone_number %></td>
-    </tr>
-    <tr>
-      <td class="text-center">メッセージ</td>
-      <td style="white-space: pre-wrap;"><%= @contact.title %></td>
-    </tr>
-    <tr>
-      <td class="text-center">メッセージ</td>
-      <td style="white-space: pre-wrap;"><%= @contact.message %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <table class="table table-borderd">
+        <tbody>
+          <tr>
+            <td class="text-center" style="width: 30%;">お名前</td>
+            <td><%= @contact.name %></td>
+          </tr>
+          <tr>
+            <td class="text-center">メールアドレス</td>
+            <td style="white-space: pre-wrap;"><%= @contact.email %></td>
+          </tr>
+          <tr>
+            <td class="text-center">電話番号</td>
+            <td style="white-space: pre-wrap;"><%= @contact.phone_number %></td>
+          </tr>
+          <tr>
+            <td class="text-center">タイトル</td>
+            <td style="white-space: pre-wrap;"><%= @contact.title %></td>
+          </tr>
+          <tr>
+            <td class="text-center">お問い合わせ内容</td>
+            <td style="white-space: pre-wrap;"><%= @contact.message %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <p class="ml-6 mb-3">入力内容に問題がなければ、送信ボタンを押して、お進みください。</p>
+        <div class="ml-8 mb-3">
+        <%= form_with model:@contact, url:admin_contacts_path, method: :post, local:true do |f| %>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :email %>
+          <%= f.hidden_field :phone_number %>
+          <%= f.hidden_field :title %>
+          <%= f.hidden_field :message %>
+          <%= f.submit '送信', class:"btn btn-outline-primary"%>
+        <% end %>
+        </div>
+        <div class="ml-8 mb-3">
+        <%= form_with model:@contact, url:admin_contacts_back_path, method: :post, local:true do |f| %>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :email %>
+          <%= f.hidden_field :phone_number %>
+          <%= f.hidden_field :title %>
+          <%= f.hidden_field :message %>
+          <%= f.submit '入力画面に戻る', class:"btn btn-outline-dark" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_with model:@contact, url:admin_contacts_path, method: :post, local:true do |f| %>
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :phone_number %>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :message %>
-  <div><%= f.submit '送信' %></div>
-<% end %>
-<%= form_with model:@contact, url:admin_contacts_back_path, method: :post, local:true do |f| %>
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :phone_number %>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :message %>
-  <div><%= f.submit '入力画面に戻る' %></div>
-<% end %>

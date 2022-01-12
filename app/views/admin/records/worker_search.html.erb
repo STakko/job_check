@@ -1,2 +1,9 @@
-<h3>-作業者-検索結果</h3>
-<%= render 'index', records: @records %>
+<div class="container">
+  <div class"row">
+    <div class="col-lg-8 mx-auto">
+      <h2 class="mt-4">-作業者-検索結果</h3>
+      <%= render 'index', records: @records %>
+      <%= link_to :back do %><button class="btn btn-dark">戻る</button><% end %>
+    </div>
+  </div>
+</div>

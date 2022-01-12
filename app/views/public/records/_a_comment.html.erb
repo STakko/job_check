@@ -1,7 +1,12 @@
-<div>
-<% record.admin_comments.each do |admin_comment| %>
-  <p>管理者からのコメント</p>
-  <%= admin_comment.comment %>
-  <%= admin_comment.created_at.strftime('%Y/%m/%d') %>
-<% end %>
-</div>
+<table class="table mt-5">
+  <thead class="thead-info">
+    <th colspan="2">管理者からのコメント</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% record.admin_comments.each do |admin_comment| %>
+    <tr>
+      <td colspan="3"><%= admin_comment.comment %></td>
+    <% end %>
+  </tbody>
+</table>

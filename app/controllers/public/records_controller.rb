@@ -14,7 +14,7 @@ class Public::RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
-      redirect_to public_record_path(@record)
+      redirect_to record_path(@record)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Public::RecordsController < ApplicationController
     elsif record.work_status == 'start_work'
       record.update(work_status: 2)
     end
-    redirect_to public_record_path(record)
+    redirect_to record_path(record)
   end
 
   def worker_search
