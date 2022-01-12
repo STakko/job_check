@@ -1,7 +1,7 @@
-<div>
-  <h3><%= @record.name %></h3>
-  <div>
-    <div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2 class="mt-4"><%= @record.name %></h2>
       <table class="table">
         <tbody>
           <tr>
@@ -18,28 +18,43 @@
           </tr>
           <tr>
             <td>写真</td>
+            <% if @record.image != nil %>
             <td>
               <div class="image">
                 <%= attachment_image_tag @record, :image, :fill, 250, 220, fallback: "", size: "250x220" %>
               </div>
             </td>
+            <% else %>
+            <td>写真はありません</td>
+            <% end %>
           </tr>
           <tr>
             <td>作業登録日時</td>
             <td><%= @record.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
+          <tr>
+            <td>作業フェーズ</td>
+            <td><%= @record.work_status_i18n %></td>
+          </tr>
+          <%= render 'time', record: @record %>
+          <tr>
+            <td><%= link_to '戻る', records_path, class:"btn btn-dark" %></td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
-      <div><%= render 'time', record: @record %></div>
-      作業フェーズ<%= @record.work_status_i18n %>
-      <div><%= render 'a_comment', record: @record %></div>
-      <div><%= render 'p_comment', record: @record %></div>
-      <div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'p_comment', record: @record %>
+      <div class="form-group">
         <%= form_with model:[@record, @public_comment], url: record_public_comments_path(@record), local: true do |f| %>
-          <%= f.text_area :comment,placeholder: "コメントをここに" %>
-          <%= f.submit "コメント" %>
+          <%= f.text_field :comment,placeholder: "コメントをここに", class:"form-control"%>
+          <%= f.submit "送信", class:"btn btn-outline-success" %>
         <% end %>
       </div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'a_comment', record: @record %>
     </div>
   </div>
 </div>

@@ -1,32 +1,36 @@
-<% if record.start_time == nil %>
-  <%= form_with model:record, url:record_path(record), local:true do |f| %>
-    <%= f.hidden_field :record, value: record %>
-    <%= f.hidden_field :start_time, value: Time.now %>
-    <%= f.submit "作業開始", class:"btn btn-primary" %>
+<tr>
+  <td>開始時刻</td>
+  <% if record.start_time != nil %>
+    <td><%= record.start_time.strftime( "%H:%M" ) %></td>
+  <% else %>
+    <td></td>
   <% end %>
-<% end %>
-
-<% if record.start_time != nil && record.finish_time == nil %>
-  <%= form_with model:record, url:record_path(record), local:true do |f| %>
-    <%= f.hidden_field :record, value: record %>
-    <%= f.hidden_field :finish_time, value: Time.now %>
-    <%= f.submit "作業終了", class:"btn btn-danger" %>
+</tr>
+<tr>
+  <td>終了時刻</td>
+  <% if record.finish_time != nil %>
+    <td><%= record.finish_time.strftime( "%H:%M" ) %></td>
+  <% else %>
+    <td></td>
   <% end %>
-<% end %>
-
-<% if record.start_time != nil %>
-<br>
-<p>開始時刻</p>
-  <%= record.start_time.strftime( "%H:%M" ) %>
-<% end %>
-
-<% if record.finish_time != nil %>
-<br>
-<p>終了時刻</p>
-  <%= record.finish_time.strftime( "%H:%M" ) %>
-<% end %>
-
-<% if record.start_time != nil && record.finish_time != nil %>
-<p>作業時間</p>
-  <%= ((record.finish_time - record.start_time).to_i / 3600.0).round(1) %>時間
-<% end %>
+</tr>
+<tr>
+  <td>作業時間</td>
+  <td>
+    <% if record.start_time == nil %>
+      <%= form_with model:record, url:record_path(record), local:true do |f| %>
+        <%= f.hidden_field :record, value: record %>
+        <%= f.hidden_field :start_time, value: Time.now %>
+        <%= f.submit "作業開始", class:"btn btn-primary" %>
+      <% end %>
+    <% elsif record.start_time != nil && record.finish_time == nil %>
+      <%= form_with model:record, url:record_path(record), local:true do |f| %>
+        <%= f.hidden_field :record, value: record %>
+        <%= f.hidden_field :finish_time, value: Time.now %>
+        <%= f.submit "終了する", class:"btn btn-danger" %>
+      <% end %>
+    <% else %>
+      <%= ((record.finish_time - record.start_time).to_i / 3600.0).round(1) %>時間
+    <% end %>
+  </td>
+</tr>
