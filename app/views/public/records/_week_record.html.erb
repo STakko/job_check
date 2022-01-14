@@ -1,0 +1,26 @@
+<table class="table table-borderd">
+  <thead>
+    <tr>
+      <th>6日前</th>
+      <th>5日前</th>
+      <th>4日前</th>
+      <th>3日前</th>
+      <th>2日前</th>
+      <th>昨 日</th>
+      <th>今 日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= records.created_6days_ago.count %>件</th>
+      <th><%= records.created_5days_ago.count %>件</th>
+      <th><%= records.created_4days_ago.count %>件</th>
+      <th><%= records.created_3days_ago.count %>件</th>
+      <th><%= records.created_2days_ago.count %>件</th>
+      <th><%= records.created_yesterday.count %>件</th>
+      <th><%= records.created_today.count %>件</th>
+    </tr>
+  </tbody>
+</table>
+
+<%= line_chart Record.group_by_day(:created_at).count %>
