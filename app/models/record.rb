@@ -5,7 +5,10 @@ class Record < ApplicationRecord
   has_many :admin_comments, dependent: :destroy
   has_many :public_comments, dependent: :destroy
   has_many :confirmations, dependent: :destroy
-  
+
+  validates :name, presence: true
+  validates :body, presence: true
+
   def confirmationed_by?(record)
     confirmations.where(record_id: record.id).exists?
   end
