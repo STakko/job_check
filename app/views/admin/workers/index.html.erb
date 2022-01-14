@@ -28,10 +28,11 @@
         <% end %>
         <tr>
           <td><%= link_to :back do %><button class="btn btn-dark">戻る</button><% end %></td>
-          <td></td>
+          <td><div><%= paginate @workers %></div></td>
         </tr>
         </tbody>
       </table>
+      
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 class Admin::RecordsController < ApplicationController
-  
+
   def index
     @q = Record.ransack(params[:q])
     @workers = Worker.all
@@ -24,25 +24,25 @@ class Admin::RecordsController < ApplicationController
       render :edit
     end
   end
-  
+
   def worker_search
     @q = Record.search(search_params)
-    @records = @q.result(distinct: true).order(created_at: :desc)
+    @records = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).reverse_order.per(9)
   end
 
   def client_search
     @q = Record.search(search_params)
-    @records = @q.result(distinct: true).order(created_at: :desc)
+    @records = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).reverse_order.per(9)
   end
-  
+
   private
 
   def record_params
     params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time, :work_status)
   end
-  
+
   def search_params
     params.require(:q).permit(:worker_id_eq, :client_id_eq)
   end
-  
+
 end
