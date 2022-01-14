@@ -2,7 +2,7 @@ class Admin::ClientsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @clients = Client.all
+    @clients = Client.all.page(params[:page]).reverse_order
     @client = Client.new
   end
 
@@ -11,11 +11,11 @@ class Admin::ClientsController < ApplicationController
     if @client.save
       redirect_to admin_clients_path
     else
-      @client = Client.all
+      @client = Client.all.page(params[:page]).reverse_order
       @client = Client.new
     end
   end
-  
+
   def show
     @client = Client.find(params[:id])
   end

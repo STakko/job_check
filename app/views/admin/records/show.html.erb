@@ -81,10 +81,10 @@
       </table>
     </div>
     <div class="col-lg-3">
-      <%= render 'p_comment', record: @record %>
+      <%= render 'p_comment', record: @record.page(params[:page]).reverse_order %>
     </div>
     <div class="col-lg-3">
-      <%= render 'a_comment', record: @record %>
+      <%= render 'a_comment', record: @record.page(params[:page]).reverse_order %>
       <div class="form-group">
         <%= form_with model:[@record, @admin_comment], url: admin_record_admin_comments_path(@record), local: true do |f| %>
           <%= f.text_field :comment,placeholder: "コメントをここに", class:"form-control"%>

@@ -2,7 +2,7 @@ class Admin::WorkersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @workers = Worker.all
+    @workers = Worker.page(params[:page]).reverse_order.per(7)
     @worker = Worker.new
   end
 

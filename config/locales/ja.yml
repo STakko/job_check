@@ -33,3 +33,11 @@
 
       am: "午前"
       pm: "午後"
+      
+  
+    views:
+      pagination:
+        first: "≪"
+        previous: "<"
+        chevron_right: ">"
+        last: "≫"

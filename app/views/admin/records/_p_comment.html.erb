@@ -10,5 +10,6 @@
       <td><%= link_to "削除", public_record_public_comment_path(public_comment.record, public_comment),  method: :delete, class:"btn btn-outline-danger" %></td>
     </tr>
     <% end %>
+    <%= paginate public_comment %>
   </tbody>
 </table>

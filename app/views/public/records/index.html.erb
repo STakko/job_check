@@ -16,7 +16,7 @@
       <% end %>
       </div>
       <%= link_to '新規登録', new_record_path, class:"btn btn-outline-info" %>
-      <%= render 'index', records: Record.all.order(created_at: :desc) %>
+      <%= render 'index', records: Record.page(params[:page]).reverse_order %>
     </div>
   </div>
 </div>
