@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-lg-6">
       <div class="records-new-group">
         <h2 class="mt-4">作業記録一覧</h2>
         <div class="records-new"><%= link_to '新規登録', new_record_path, class:"btn btn-outline-info" %></div>
@@ -27,6 +27,9 @@
         </div>
       </div>
       <%= render 'index', records: Record.page(params[:page]).reverse_order.per(9) %>
+    </div>
+    <div class="col-lg-6">
+      <%= line_chart Record.group_by_day(:created_at).count %>
     </div>
   </div>
 </div>
