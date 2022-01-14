@@ -1,4 +1,6 @@
 class Public::PublicCommentsController < ApplicationController
+  before_action :authenticate_shared_user!
+  
   def create
     record = Record.find(params[:record_id])
     public_comment = PublicComment.new(public_comment_params)

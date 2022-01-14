@@ -1,4 +1,6 @@
 class Admin::AdminCommentsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def create
     record = Record.find(params[:record_id])
     admin_comment = AdminComment.new(admin_comment_params)
