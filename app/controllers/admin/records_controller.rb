@@ -10,8 +10,6 @@ class Admin::RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
     @admin_comment = AdminComment.new
-    @admin_comments = AdminComment.page(params[:page]).reverse_order.per(5)
-    @public_comments = PublicComment.page(params[:page]).reverse_order.per(5)
   end
 
   def edit
