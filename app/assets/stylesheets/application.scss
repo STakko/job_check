@@ -11,10 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  *= require simple_calendar
- *= require_tree .
- *= require_self
  */
  @import "bootstrap";
+
+//フラッシュメッセージ
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
 
 //header
  .namazu_bousai {
