@@ -7,8 +7,9 @@
     <% record.public_comments.each do |public_comment| %>
     <tr>
       <td colspan="2"><%= public_comment.comment %></td>
-      <td><%= link_to "削除", public_record_public_comment_path(public_comment.record, public_comment),  method: :delete, class:"btn btn-outline-danger" %></td>
+      <td></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+<div><%= paginate public_comments %></div>

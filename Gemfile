@@ -70,3 +70,4 @@ gem 'simple_calendar', '~> 2.0'
 gem "dotenv-rails"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'kaminari','~> 1.2.1'
