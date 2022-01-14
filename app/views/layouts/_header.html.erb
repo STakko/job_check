@@ -7,11 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
         <% if shared_user_signed_in? %>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li><%= link_to '作業新規登録', new_record_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to '作業記録一覧', records_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'スケジュール', events_path, class: 'nav-link text-light'%></li>
+          <li><%= link_to 'ログアウト', destroy_shared_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
         <% elsif admin_signed_in? %>
           <li><%= link_to '作業記録一覧', admin_records_path, class: 'nav-link text-light' %></li>
           <li><%= link_to '作業者一覧', admin_workers_path, class: 'nav-link text-light' %></li>
@@ -20,11 +19,7 @@
           <li><%= link_to 'お問い合わせ', new_admin_contact_path, class: 'nav-link text-light'%></li>
           <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %></li>
         <% else %>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li><%= link_to '管理者ログイン', new_admin_session_path, class: 'nav-link text-light' %></li>
         <% end %>
         </ul>
       </div>

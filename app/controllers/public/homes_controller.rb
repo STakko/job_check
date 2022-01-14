@@ -1,5 +1,10 @@
 class Public::HomesController < ApplicationController
+
   def top
-    redirect_to records_path
+    unless shared_user_signed_in?
+      redirect_to new_shared_user_session_path
+    else
+      redirect_to records_path
+    end
   end
 end

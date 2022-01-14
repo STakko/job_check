@@ -1,4 +1,5 @@
 class Public::RecordsController < ApplicationController
+  before_action :authenticate_shared_user!
 
   def index
       @q = Record.ransack(params[:q])

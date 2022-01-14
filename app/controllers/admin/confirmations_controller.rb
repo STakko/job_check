@@ -1,4 +1,6 @@
 class Admin::ConfirmationsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def create
     record = Record.find(params[:record_id])
     confirmation = Confirmation.new(record_id: record.id)
