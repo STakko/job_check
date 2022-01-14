@@ -46,6 +46,11 @@ class Public::RecordsController < ApplicationController
     @records = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).reverse_order.per(9)
   end
 
+  def date_search
+    @q = Record.search(search_params)
+    @records = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).reverse_order.per(9)
+  end
+
 
   private
 
@@ -54,7 +59,7 @@ class Public::RecordsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:worker_id_eq, :client_id_eq)
+    params.require(:q).permit(:worker_id_eq, :client_id_eq, :created_at_gteq, :created_at_lteq_end_of_day)
   end
 
 end

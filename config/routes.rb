@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   get 'a_worker_search', to: 'admin/records#worker_search'
   get 'a_client_search', to: 'admin/records#client_search'
+  get 'a_date_search', to: 'admin/records#date_search'
+
   #共同アカウント
   scope module: :public do
     root to: 'homes#top'
@@ -39,4 +41,5 @@ Rails.application.routes.draw do
 
   get 'p_worker_search', to: 'public/records#worker_search'
   get 'p_client_search', to: 'public/records#client_search'
+  get 'p_date_search', to: 'public/records#date_search'
 end
