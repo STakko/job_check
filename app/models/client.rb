@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
-  validates :name, presence: true
   has_many :records
+
+  validates :name, presence: true
+  validates :supervisor, presence: true
 end
