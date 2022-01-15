@@ -3,25 +3,33 @@
     <div class="col-lg-6">
       <h2 class="mt-4">取引先会社一覧・追加</h2>
       <%= form_with model:@client, url:admin_clients_path, local:true do |f| %>
-        <label for="name">会社名</label><br>
-        <%= f.text_field :name, placeholder: "会社名を入力" %><br>
-
-        <label for="zipcode">郵便番号</label><br>
-        <%= f.text_field :zipcode, placeholder: "郵便番号を入力" %><br>
-
-        <label for="address">住所</label><br>
-        <%= f.text_field :address, placeholder: "住所を入力", size: "50" %><br>
-
-        <label for="phone_number">電話番号</label><br>
-        <%= f.text_field :phone_number, placeholder: "電話番号を入力" %><br>
-
-        <label for="supervisor">担当者名</label><br>
-        <%= f.text_field :supervisor, placeholder: "担当者名を入力" %><br>
-
-        <label for="supervisor_phone_number">担当者電話番号</label><br>
-        <%= f.text_field :supervisor_phone_number, placeholder: "電話番号を入力" %><br>
-        <br>
-        <%= f.submit ' 登録 ', class:"btn btn-primary" %>
+        <div class="client-form">
+          <%= f.label :name, '会社名＊' %>
+          <%= f.text_field :name, autofocus: true, placeholder: "会社名を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :zipcode, '郵便番号' %>
+          <%= f.text_field :zipcode, placeholder: "郵便番号を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form-address">
+          <%= f.label :address, '住所' %>
+          <%= f.text_field :address, placeholder: "住所を入力", size: "50", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :phone_number, '電話番号' %>
+          <%= f.text_field :phone_number, placeholder: "電話番号を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :supervisor, '担当者名＊' %>
+          <%= f.text_field :supervisor, placeholder: "担当者名を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :supervisor_phone_number, '担当者電話番号' %>
+          <%= f.text_field :supervisor_phone_number, placeholder: "電話番号を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-submit">
+          <%= f.submit ' 登録 ', class:"btn btn-primary" %>
+        </div>
       <% end %>
     </div>
     <div class="col-lg-6">

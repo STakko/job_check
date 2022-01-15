@@ -13,22 +13,22 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="mt-5">
-        <%= link_to '予定を追加', new_admin_event_path, class:"btn btn-outline-info" %>
+      <div class="new-event">
+        <%= link_to 'スケジュールを追加', new_admin_event_path, class:"btn btn-outline-info" %>
       </div>
       <div>
         <table class="table">
           <thead class="thead-dark">
-            <th>作業者</th>
-            <th>要件</th>
-            <th>時刻</th>
+            <th class="text-center">作業者</th>
+            <th class="text-center">要件</th>
+            <th class="text-center">予定時刻</th>
           </thead>
           <tbody>
             <% @events.each do |event| %>
               <tr>
-                <td><%= event.worker.name %></td>
-                <td><%= link_to admin_event_path(event) do %><%= event.title %><% end %></td>
-                <td><%= event.start_time.strftime('%H:%M:%S') %></td>
+                <td class="text-center"><%= event.worker.name %></td>
+                <td class="text-center"><%= link_to admin_event_path(event) do %><%= event.title %><% end %></td>
+                <td class="text-center"><%= event.start_time.strftime('%H:%M:%S') %></td>
               </tr>
             <% end %>
           </tbody>

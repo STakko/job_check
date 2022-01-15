@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-6 mx-auto">
+      <h2 class="my-4">入力内容確認</h2>
       <table class="table table-borderd">
         <tbody>
           <tr>
@@ -25,19 +26,9 @@
           </tr>
         </tbody>
       </table>
-      <div>
-        <p class="ml-6 mb-3">入力内容に問題がなければ、送信ボタンを押して、お進みください。</p>
-        <div class="ml-8 mb-3">
-        <%= form_with model:@contact, url:admin_contacts_path, method: :post, local:true do |f| %>
-          <%= f.hidden_field :name %>
-          <%= f.hidden_field :email %>
-          <%= f.hidden_field :phone_number %>
-          <%= f.hidden_field :title %>
-          <%= f.hidden_field :message %>
-          <%= f.submit '送信', class:"btn btn-outline-primary"%>
-        <% end %>
-        </div>
-        <div class="ml-8 mb-3">
+      <p class="ml-6 mb-3">入力内容に問題がなければ、送信ボタンを押して、お進みください。</p>
+      <div class="confilm-button">
+        <div class="confilm-back">
         <%= form_with model:@contact, url:admin_contacts_back_path, method: :post, local:true do |f| %>
           <%= f.hidden_field :name %>
           <%= f.hidden_field :email %>
@@ -46,6 +37,16 @@
           <%= f.hidden_field :message %>
           <%= f.submit '入力画面に戻る', class:"btn btn-outline-dark" %>
           <% end %>
+        </div>
+        <div class="confilm-submit">
+        <%= form_with model:@contact, url:admin_contacts_path, method: :post, local:true do |f| %>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :email %>
+          <%= f.hidden_field :phone_number %>
+          <%= f.hidden_field :title %>
+          <%= f.hidden_field :message %>
+          <%= f.submit '送信', class:"btn btn-outline-primary"%>
+        <% end %>
         </div>
       </div>
     </div>

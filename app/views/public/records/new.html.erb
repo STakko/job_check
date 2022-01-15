@@ -6,28 +6,28 @@
         <tbody>
         <%= form_with model:@record, url:records_path, local:true do |f| %>
           <tr>
-            <td><%= f.label :name, '作業名' %></td>
+            <td class="text-center"><%= f.label :name, '作業名' %></td>
             <td><%= f.text_field :name, placeholder: "作業名を入力", autofocus: true, class: 'form-control' %></td>
           </tr>
           <tr>
-            <td><%= f.label :worker_id, '作業者' %></td>
+            <td class="text-center"><%= f.label :worker_id, '作業者' %></td>
             <td><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name), class: 'form-control' %></td>
           </tr>
           <tr>
-            <td><%= f.label :client_id, '取引先' %></td>
+            <td class="text-center"><%= f.label :client_id, '取引先' %></td>
             <td><%= f.select :client_id, options_from_collection_for_select(Client.all, :id, :name), class: 'form-control' %></td>
           </tr>
           <tr>
-            <td><%= f.label :body, '作業内容' %></td>
+            <td class="text-center"><%= f.label :body, '作業内容' %></td>
             <td><%= f.text_area :body, placeholder: "作業内容を入力",size:"50x4", class: 'form-control' %></td>
           </tr>
           <tr>
-            <td><%= f.label :image, '写真' %></td>
-            <td><%= f.attachment_field :image, class: 'form-control-file' %></td>
+            <td class="text-center"><%= f.label :image, '写真' %></td>
+            <td class="text-center"><%= f.attachment_field :image, class: 'form-control-file' %></td>
           </tr>
           <tr>
-            <td><%= link_to '戻る', records_path, class:"btn btn-dark" %></td>
-            <td><%= f.submit ' 登録 ', class:"btn btn-info" %></td>
+            <td class="text-center"><%= link_to '戻る', records_path, class:"btn btn-dark" %></td>
+            <td class="text-center"><%= f.submit ' 登録 ', class:"btn btn-info" %></td>
           </tr>
         <% end %>
         </tbody>

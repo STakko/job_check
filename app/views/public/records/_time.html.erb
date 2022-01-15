@@ -1,22 +1,22 @@
 <tr>
-  <td>開始時刻</td>
+  <td class="text-center">開始時刻</td>
   <% if record.start_time != nil %>
-    <td><%= record.start_time.strftime( "%H:%M" ) %></td>
+    <td class="text-center"><%= record.start_time.strftime( "%H:%M" ) %></td>
   <% else %>
     <td></td>
   <% end %>
 </tr>
 <tr>
-  <td>終了時刻</td>
+  <td class="text-center">終了時刻</td>
   <% if record.finish_time != nil %>
-    <td><%= record.finish_time.strftime( "%H:%M" ) %></td>
+    <td class="text-center"><%= record.finish_time.strftime( "%H:%M" ) %></td>
   <% else %>
     <td></td>
   <% end %>
 </tr>
 <tr>
-  <td>作業時間</td>
-  <td>
+  <td class="text-center">作業時間</td>
+  <td class="text-center">
     <% if record.start_time == nil %>
       <%= form_with model:record, url:record_path(record), local:true do |f| %>
         <%= f.hidden_field :record, value: record %>
