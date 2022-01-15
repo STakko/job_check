@@ -1,0 +1,14 @@
+<table class="table mt-5">
+  <thead class="thead-info">
+    <th colspan="2"><%= record.worker.name %>さんのコメント</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% record.public_comments.each do |public_comment| %>
+    <tr>
+      <td colspan="2"><%= public_comment.comment %></td>
+      <td><%= link_to "削除", record_public_comment_path(public_comment.record, public_comment),  method: :delete, class:"btn btn-outline-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

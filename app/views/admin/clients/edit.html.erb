@@ -1,0 +1,39 @@
+<div class="container">
+  <div class"row">
+    <div class="col-lg-8 mx-auto">
+    <h2 class="pb-3">取引先会社編集</h2>
+    <div class="form-group">
+    <%= form_with model:@client, url:admin_client_path, method: :patch, local:true do |f| %>
+      <div class="client-form">
+          <%= f.label :name, '会社名＊' %>
+          <%= f.text_field :name, autofocus: true, placeholder: "会社名を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :zipcode, '郵便番号' %>
+          <%= f.text_field :zipcode, placeholder: "郵便番号を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form-address">
+          <%= f.label :address, '住所' %>
+          <%= f.text_field :address, placeholder: "住所を入力", size: "50", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :phone_number, '電話番号' %>
+          <%= f.text_field :phone_number, placeholder: "電話番号を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :supervisor, '担当者名＊' %>
+          <%= f.text_field :supervisor, placeholder: "担当者名を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-form">
+          <%= f.label :supervisor_phone_number, '担当者電話番号' %>
+          <%= f.text_field :supervisor_phone_number, placeholder: "電話番号を入力", class: 'form-control' %><br>
+        </div>
+        <div class="client-submit">
+          <div class="client-back"><%= link_to "戻る", admin_clients_path, class:"btn btn-dark" %></div>
+          <div><%= f.submit ' 変更を保存 ', class:"btn btn-success" %></div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

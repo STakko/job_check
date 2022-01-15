@@ -1,0 +1,31 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center">会社名</th>
+      <th class="text-center">電話番号</th>
+      <th class="text-center">担当者名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% clients.each do |client| %>
+    <tr>
+      <td class="text-center">
+        <%= link_to admin_client_path(client) do %>
+          <%= client.name %>
+        <% end %>
+      </td>
+      <td class="text-center">
+        <%= client.phone_number %>
+      </td>
+      <td class="text-center">
+        <%= client.supervisor %>
+      </td>
+      <td class="text-center">
+        <%= link_to '編集', edit_admin_client_path(client.id), class: "btn btn-warning" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div><%= paginate clients %></div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class"row">
+    <div class="col-lg-6 mx-auto">
+      <div class="h-550">
+        <h2 class="my-4">従業員名編集</h2>
+        <div class="worker-form-group">
+          <div class="worker-form">
+            <%= form_with model:@worker, url:admin_worker_path, method: :patch, local:true do |f| %>
+              <%= f.text_field :name, autofocus: true, placeholder: "名前を入れてください", class:'form-control' %>
+          </div>
+          <div class="worker-submit">
+              <%= f.submit ' 変更を保存 ', class:"btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="worker-back">
+          <%= link_to "戻る", admin_workers_path, class:"btn btn-dark" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

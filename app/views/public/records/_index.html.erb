@@ -1,0 +1,23 @@
+<table class='table'>
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center">取引先名</th>
+      <th class="text-center">作業者</th>
+      <th class="text-center">作業名</th>
+      <th class="text-center">作業フェーズ</th>
+      <th class="text-center">作成日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% records.each do |record| %>
+      <tr>
+        <td class="text-center"><%= record.client.name %></td>
+        <td class="text-center"><%= record.worker.name %></td>
+        <td class="text-center"><%= link_to record.name, record_path(record) %></td>
+        <td class="text-center"><%= record.work_status_i18n %></td>
+        <td class="text-center"><%= record.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div><%= paginate records %></div>

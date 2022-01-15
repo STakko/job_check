@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+//共通
+.h-550 {
+ height: 550px;
+ margin: 0 auto;
+}
+
+.wrapper{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
+//header
+ .namazu_bousai {
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  background-image: image-url('namazu_bousai.png');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+//footer
+footer{
+    width: 100%;
+    margin: 20px 0 0 0;
+    position: absolute;
+    bottom: 0;
+}
+
+//sign_in
+.sign-in-form{
+ margin: 50px auto;
+ width: 250px;
+}
+
+.sign-in-submit{
+ margin: 0 auto;
+ width: 250px;
+}
+
+.sign-in-link{
+ width: 250px;
+ margin-left: 100px;
+ margin-top: 30px;
+
+}
+
+//clients
+.client-form{
+ width: 270px;
+}
+
+.client-form-address{
+ width: 450px;
+}
+
+.client-submit{
+ margin: 20px auto;
+ width: 400px;
+ display: flex;
+}
+
+.client-back{
+ margin-right: 50px;
+}
+
+//contacts
+.contact-form{
+ width: 270px;
+}
+
+.contact-button{
+ display: flex;
+ margin: 10px auto;
+}
+
+.contact-back {
+ margin-right: 120px;
+}
+
+.confilm-button{
+ display: flex;
+}
+
+.confilm-back{
+ margin-right: 100px;
+ margin-bottom: 20px;
+}
+
+.confilm-submit{
+ margin-left: 50px;
+ margin-bottom: 20px;
+}
+
+.thankyou{
+ margin-top: 260px;
+}
+
+//events
+.new-event{
+ width: 100%;
+ margin: 29px auto;
+}
+//records
+.search-form-group {
+ justify-content: center;
+ display: flex;
+}
+
+.search-form {
+ padding: 20px;
+}
+
+.records-new-group{
+ display: flex;
+}
+
+.records-new{
+ padding: 28px 20px 0 40px;
+}
+
+.comment-form-group{
+ display: flex;
+}
+
+
+//workers
+.worker-form-group{
+ display: flex;
+ width: 500px;
+ margin-bottom: 20px;
+}
+
+.worker-form{
+ width: 250px;
+}
+
+.worker-submit{
+ margin: 0 20px;
+}
+
+.worker-back{
+ margin: 30px 0 0 300px;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class"row">
+    <div class="col-lg-8 mx-auto">
+      <h2 class="mt-4">従業員名簿・追加</h2>
+      <div class="worker-form-group">
+        <div class="worker-form">
+          <%= form_with model:@worker, url:admin_workers_path, local:true do |f| %>
+          <%= f.text_field :name, autofocus: true, placeholder: "名前を入れてください", class:'form-control' %>
+        </div>
+        <div class="worker-submit">
+          <%= f.submit ' 登録 ', class:"btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th class="text-center">従業員名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @workers.each do |worker| %>
+          <tr>
+            <td class="text-center">
+              <%= worker.name %>
+            </td>
+            <td class="text-center">
+              <%= link_to '編集', edit_admin_worker_path(worker.id), class:"btn btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td><div><%= paginate @workers %></div></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
