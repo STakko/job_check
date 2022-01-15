@@ -15,7 +15,11 @@
  *= require_self
  */
  @import "bootstrap";
-
+//共通
+.h-550 {
+ height: 550px;
+ margin: 0 auto;
+}
 //header
  .namazu_bousai {
   margin: 0;
@@ -30,6 +34,24 @@
 
 .pagination {
   justify-content: center;
+}
+
+//sign_in
+.sign-in-form{
+ margin: 50px auto;
+ width: 250px;
+}
+
+.sign-in-submit{
+ margin: 0 auto;
+ width: 250px;
+}
+
+.sign-in-link{
+ width: 250px;
+ margin-left: 100px;
+ margin-top: 30px;
+
 }
 
 //records

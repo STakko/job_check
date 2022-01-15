@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
 
   #共同アカウント
-  devise_for :shared_users,skip: [:registrations, :passwords] ,contrllers: {
+  devise_for :shared_users,skip: [:registrations, :passwords] ,controllers: {
     sessions: 'public/sessions'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
