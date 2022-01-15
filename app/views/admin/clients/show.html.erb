@@ -1,31 +1,35 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-10 offset-1 pt-3">
-      <h2 class="mt-4"><%= @client.name %>詳細</h2>
+<div class="container">
+  <div class="row mx-auto">
+    <div class="col-lg-8 mx-auto">
+      <h2 class="my-4"><%= @client.name %>詳細</h2>
       <table class="table table-striped">
+        <thead>
+          <th></th>
+          <th style="white-space: pre-wrap;"></th>
+        </thead>
         <tr>
-          <td>郵便番号</td>
-          <td><%= @client.zipcode%></td>
+          <td class="text-center">郵便番号</td>
+          <td style="white-space: pre-wrap;"><%= @client.zipcode%></td>
         </tr>
         <tr>
-          <td>住所</td>
-          <td><%= @client.address %></td>
+          <td class="text-center">住所</td>
+          <td style="white-space: pre-wrap;"><%= @client.address %></td>
         </tr>
         <tr>
-          <td>電話番号</td>
-          <td><%= @client.phone_number %></td>
+          <td class="text-center">電話番号</td>
+          <td style="white-space: pre-wrap;"><%= @client.phone_number %></td>
         </tr>
         <tr>
-          <td>担当者名</td>
-          <td><%= @client.supervisor %></td>
+          <td class="text-center">担当者名</td>
+          <td style="white-space: pre-wrap;"><%= @client.supervisor %></td>
         </tr>
         <tr>
-          <td>担当者電話番号</td>
-          <td><%= @client.supervisor_phone_number %></td>
+          <td class="text-center">担当者電話番号</td>
+          <td style="white-space: pre-wrap;"><%= @client.supervisor_phone_number %></td>
         </tr>
         <tr>
-          <td><%= link_to '戻る', admin_clients_path, class: "btn btn-dark" %></td>
-          <td><%= link_to '編集', edit_admin_client_path(@client.id), class: "btn btn-warning" %></td>
+          <td class="text-center"><%= link_to '戻る', admin_clients_path, class: "btn btn-dark" %></td>
+          <td style="white-space: pre-wrap;"><%= link_to '編集', edit_admin_client_path(@client.id), class: "btn btn-warning" %></td>
         </tr>
       </table>
     </div>

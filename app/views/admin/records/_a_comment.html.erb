@@ -7,7 +7,7 @@
     <% record.admin_comments.each do |admin_comment| %>
     <tr>
       <td colspan="2"><%= admin_comment.comment %></td>
-      <td><%= link_to "削除", admin_record_admin_comment_path(admin_comment.record, admin_comment), method: :delete, class:"btn btn-outline-danger" %></td>
+      <td class="text-center"><%= link_to "削除", admin_record_admin_comment_path(admin_comment.record, admin_comment), method: :delete, class:"btn btn-outline-danger" %></td>
     <% end %>
   </tbody>
 </table>

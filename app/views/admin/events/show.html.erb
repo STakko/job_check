@@ -1,28 +1,28 @@
 <div class="container">
   <div class"row">
     <div class="col-6 mx-auto">
-      <h2 class="mt-4">予定詳細</h2>
+      <h2 class="my-4">予定詳細</h2>
       <table class="table">
         <tbody>
           <tr>
-            <td>予定名</td>
-            <td><%= @event.title %></td>
+            <td class="text-center">予定名</td>
+            <td class="text-center"><%= @event.title %></td>
           </tr>
           <tr>
-            <td>予定作業者</td>
-            <td><%= @event.worker.name %></td>
+            <td class="text-center">予定作業者</td>
+            <td class="text-center"><%= @event.worker.name %></td>
           </tr>
           <tr>
-            <td>内容</td>
+            <td class="text-center">内容</td>
             <td><%= @event.content %></td>
           </tr>
           <tr>
-            <td>開始時刻</td>
-            <td><%= @event.start_time.strftime('%H:%M') %></td>
+            <td class="text-center">開始時刻</td>
+            <td class="text-center"><%= @event.start_time.strftime('%H:%M') %></td>
           </tr>
           <tr>
-            <td><%= link_to '戻る', admin_events_path, class:"btn btn-dark" %></td>
-            <td><%= link_to '編集', edit_admin_event_path, class:"btn btn-warning" %></td>
+            <td class="text-center"><%= link_to '戻る', admin_events_path, class:"btn btn-dark" %></td>
+            <td class="text-center"><%= link_to '編集', edit_admin_event_path, class:"btn btn-warning" %></td>
           </tr>
         </tbody>
       </table>

@@ -2,28 +2,28 @@
 <div class="container">
   <div class"row">
     <div class="col-6 mx-auto">
-      <h2 class="mt-4">予定新規登録</h2>
+      <h2 class="my-4">スケジュール新規登録</h2>
       <table class="table">
         <%= form_with model: @event, url: admin_events_path, local: true do |f| %>
         <tr>
-          <td>作業者</td>
+          <td class="text-center">作業者</td>
           <td><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
         </tr>
         <tr>
-          <td>要件</td>
-          <td><%= f.text_field :title %></td>
+          <td class="text-center">要件</td>
+          <td><%= f.text_field :title, autofocus: true, class: 'form-control' %></td>
         </tr>
         <tr>
-          <td>内容</td>
-          <td><%= f.text_area :content, size:'50x4' %></td>
+          <td class="text-center">内容</td>
+          <td><%= f.text_area :content, size:'50x4', class: 'form-control' %></td>
         </tr>
         <tr>
-          <td>予定時刻</td>
+          <td class="text-center">予定時刻</td>
           <td><%= f.datetime_select :start_time %></td>
         </tr>
         <tr>
-          <td><%= link_to '戻る', admin_events_path, class:"btn btn-outline-dark" %></td>
-          <td><%= f.submit '保存', class:"btn btn-outline-success" %></td>
+          <td class="text-center"><%= link_to '戻る', admin_events_path, class:"btn btn-outline-dark" %></td>
+          <td class="text-center"><%= f.submit '登録', class:"btn btn-outline-success" %></td>
         </tr>
         <% end %>
       </table>

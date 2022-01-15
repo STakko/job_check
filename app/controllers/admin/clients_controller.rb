@@ -2,7 +2,7 @@ class Admin::ClientsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @clients = Client.page(params[:page]).reverse_order.per(6)
+    @clients = Client.page(params[:page]).reverse_order.per(10)
     @client = Client.new
   end
 
@@ -15,7 +15,7 @@ class Admin::ClientsController < ApplicationController
       @client = Client.new
     end
   end
-  
+
   def show
     @client = Client.find(params[:id])
   end
