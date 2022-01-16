@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2022_01_11_071510) do
   create_table "records", force: :cascade do |t|
     t.integer "worker_id"
     t.integer "client_id"
-    t.string "name", default: "", null: false
-    t.text "body", default: "", null: false
+    t.string "name", null: false
+    t.text "body", null: false
     t.string "image_id"
     t.integer "work_status", default: 0, null: false
     t.time "strat_time"
