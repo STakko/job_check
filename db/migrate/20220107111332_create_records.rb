@@ -1,8 +1,8 @@
 class CreateRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :records do |t|
-      t.references :woker
-      t.references :client
+      t.integer :worker_id
+      t.integer :client_id
       t.string :name, null: false, default: ""
       t.text :body, null: false, default: ""
       t.string :image_id

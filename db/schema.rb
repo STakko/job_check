@@ -74,15 +74,6 @@ ActiveRecord::Schema.define(version: 2022_01_11_071510) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "record_comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "shared_user_id"
-    t.integer "admin_id"
-    t.integer "record_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "records", force: :cascade do |t|
     t.integer "worker_id"
     t.integer "client_id"
@@ -90,12 +81,10 @@ ActiveRecord::Schema.define(version: 2022_01_11_071510) do
     t.text "body", default: "", null: false
     t.string "image_id"
     t.integer "work_status", default: 0, null: false
-    t.time "start_time"
+    t.time "strat_time"
     t.time "finish_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_records_on_client_id"
-    t.index ["worker_id"], name: "index_records_on_worker_id"
   end
 
   create_table "shared_users", force: :cascade do |t|
