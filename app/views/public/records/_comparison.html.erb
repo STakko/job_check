@@ -2,12 +2,14 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th class="text-center"></th>
+      <th class="text-center">曜日</th>
       <th class="text-center">月</th>
       <th class="text-center">火</th>
       <th class="text-center">水</th>
       <th class="text-center">木</th>
       <th class="text-center">金</th>
+      <th class="text-center">土</th>
+      <th class="text-center">日</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,8 @@
       <th class="text-center"><%= records.created_wednesday.count %></th>
       <th class="text-center"><%= records.created_thursday.count %></th>
       <th class="text-center"><%= records.created_friday.count %></th>
+      <th class="text-center"><%= records.created_saturday.count %></th>
+      <th class="text-center"><%= records.created_sunday.count %></th>
     </tr>
     <tr>
       <th class="text-center">先週</th>
@@ -26,10 +30,12 @@
       <th class="text-center"><%= records.created_last_wednesday.count %></th>
       <th class="text-center"><%= records.created_last_thursday.count %></th>
       <th class="text-center"><%= records.created_last_friday.count %></th>
+      <th class="text-center"><%= records.created_last_saturday.count %></th>
+      <th class="text-center"><%= records.created_last_sunday.count %></th>
     </tr>
   </tbody>
 </table>
-<h4>投稿比(週)</h4>
+<h4>週合計・前週比</h4>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -53,7 +59,7 @@
     </tr>
   </tbody>
 </table>
-<h4>前年比(月)</h4>
+<h4>月合計・前年比(同月)</h4>
 <table class="table">
   <thead class="thead-dark">
     <tr>
