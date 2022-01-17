@@ -2,7 +2,13 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
       <h1 class="application-name">JOB</h1>
-      <%= link_to root_path do %><div class="namazu_bousai"></div><% end %>
+      <% if shared_user_signed_in? %>
+        <%= link_to root_path do %><div class="namazu_bousai"></div><% end %>
+      <% elsif admin_signed_in? %>
+        <%= link_to admin_path do %><div class="namazu_bousai"></div><% end %>
+      <% else %>
+        <%= link_to root_path do %><div class="namazu_bousai"></div><% end %>
+      <% end %>
       <h1 class="application-name">CHECK</h1>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
