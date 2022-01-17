@@ -10,21 +10,21 @@ class Record < ApplicationRecord
   validates :body, presence: true
 
   #今週(曜日単体)
-  scope :created_sunday, -> { where(created_at: Date.today.beginning_of_week.since(6.days).all_day) }
-  scope :created_monday, -> { where(created_at: Date.today.beginning_of_week.all_day) }
-  scope :created_tuesday, -> { where(created_at: Date.today.beginning_of_week.since(1.days).all_day) }
-  scope :created_wednesday, -> { where(created_at: Date.today.beginning_of_week.since(2.days).all_day) }
-  scope :created_thursday, -> { where(created_at: Date.today.beginning_of_week.since(3.days).all_day) }
-  scope :created_friday, -> { where(created_at: Date.today.beginning_of_week.since(4.days).all_day) }
-  scope :created_saturday, -> { where(created_at: Date.today.beginning_of_week.since(5.days).all_day) }
+  scope :created_sunday, -> { where(created_at: Time.zone.now.beginning_of_week.since(6.days).all_day) }
+  scope :created_monday, -> { where(created_at: Time.zone.now.beginning_of_week.all_day) }
+  scope :created_tuesday, -> { where(created_at: Time.zone.now.beginning_of_week.since(1.days).all_day) }
+  scope :created_wednesday, -> { where(created_at: Time.zone.now.beginning_of_week.since(2.days).all_day) }
+  scope :created_thursday, -> { where(created_at: Time.zone.now.beginning_of_week.since(3.days).all_day) }
+  scope :created_friday, -> { where(created_at: Time.zone.now.beginning_of_week.since(4.days).all_day) }
+  scope :created_saturday, -> { where(created_at: Time.zone.now.beginning_of_week.since(5.days).all_day) }
   #先週(曜日単体)
-  scope :created_last_sunday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.since(6.days).all_day) }
-  scope :created_last_monday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.all_day) }
-  scope :created_last_tuesday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.since(1.days).all_day) }
-  scope :created_last_wednesday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.since(2.days).all_day) }
-  scope :created_last_thursday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.since(3.days).all_day) }
-  scope :created_last_friday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.since(4.days).all_day) }
-  scope :created_last_saturday, -> { where(created_at: (Date.today - 1.week).beginning_of_week.since(5.days).all_day) }
+  scope :created_last_sunday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(6.days).all_day) }
+  scope :created_last_monday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.all_day) }
+  scope :created_last_tuesday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(1.days).all_day) }
+  scope :created_last_wednesday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(2.days).all_day) }
+  scope :created_last_thursday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(3.days).all_day) }
+  scope :created_last_friday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(4.days).all_day) }
+  scope :created_last_saturday, -> { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(5.days).all_day) }
   #今週
   scope :created_this_week, -> { where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week) }
   #先週
