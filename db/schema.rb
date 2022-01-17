@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_071510) do
     t.text "body", null: false
     t.string "image_id"
     t.integer "work_status", default: 0, null: false
-    t.time "strat_time"
+    t.time "start_time"
     t.time "finish_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

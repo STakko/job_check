@@ -1,0 +1,85 @@
+<h4>作業記録作成数</h4>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center">曜日</th>
+      <th class="text-center">月</th>
+      <th class="text-center">火</th>
+      <th class="text-center">水</th>
+      <th class="text-center">木</th>
+      <th class="text-center">金</th>
+      <th class="text-center">土</th>
+      <th class="text-center">日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-center">今週</th>
+      <th class="text-center"><%= records.created_monday.count %></th>
+      <th class="text-center"><%= records.created_tuesday.count %></th>
+      <th class="text-center"><%= records.created_wednesday.count %></th>
+      <th class="text-center"><%= records.created_thursday.count %></th>
+      <th class="text-center"><%= records.created_friday.count %></th>
+      <th class="text-center"><%= records.created_saturday.count %></th>
+      <th class="text-center"><%= records.created_sunday.count %></th>
+    </tr>
+    <tr>
+      <th class="text-center">先週</th>
+      <th class="text-center"><%= records.created_last_monday.count %></th>
+      <th class="text-center"><%= records.created_last_tuesday.count %></th>
+      <th class="text-center"><%= records.created_last_wednesday.count %></th>
+      <th class="text-center"><%= records.created_last_thursday.count %></th>
+      <th class="text-center"><%= records.created_last_friday.count %></th>
+      <th class="text-center"><%= records.created_last_saturday.count %></th>
+      <th class="text-center"><%= records.created_last_sunday.count %></th>
+    </tr>
+  </tbody>
+</table>
+<h4>週合計・前週比</h4>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center">今週合計</th>
+      <th class="text-center">先週合計</th>
+      <th class="text-center">前週比</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center"><%= records.created_this_week.count %></td>
+      <td class="text-center"><%= records.created_last_week.count %></td>
+      <% if records.created_last_week.count == 0 %>
+        <td></td>
+      <% else %>
+        <td class="text-center">
+          <% comparison = records.created_this_week.count / records.created_last_week.count.to_f  %>
+          <%= (comparison * 100).round %>%
+        </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<h4>月合計・前年比(同月)</h4>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center">今月合計</th>
+      <th class="text-center">前年合計</th>
+      <th class="text-center">前年比</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center"><%= records.created_this_month.count %></td>
+      <td class="text-center"><%= records.created_prev_year_month.count %></td>
+      <% if records.created_prev_year_month.count == 0 %>
+        <td></td>
+      <% else %>
+        <td class="text-center">
+          <% year_comparison = records.created_this_month.count / records.created_prev_year_month.count.to_f  %>
+          <%= (year_comparison * 100).round %>%
+        </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
