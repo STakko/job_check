@@ -15,23 +15,23 @@
   <tbody>
     <tr>
       <th class="text-center">今週</th>
-      <th class="text-center"><%= records.created_monday.count %></th>
-      <th class="text-center"><%= records.created_tuesday.count %></th>
-      <th class="text-center"><%= records.created_wednesday.count %></th>
-      <th class="text-center"><%= records.created_thursday.count %></th>
-      <th class="text-center"><%= records.created_friday.count %></th>
-      <th class="text-center"><%= records.created_saturday.count %></th>
-      <th class="text-center"><%= records.created_sunday.count %></th>
+      <th class="text-center"><%= Record.created_monday.count %></th>
+      <th class="text-center"><%= Record.created_tuesday.count %></th>
+      <th class="text-center"><%= Record.created_wednesday.count %></th>
+      <th class="text-center"><%= Record.created_thursday.count %></th>
+      <th class="text-center"><%= Record.created_friday.count %></th>
+      <th class="text-center"><%= Record.created_saturday.count %></th>
+      <th class="text-center"><%= Record.created_sunday.count %></th>
     </tr>
     <tr>
       <th class="text-center">先週</th>
-      <th class="text-center"><%= records.created_last_monday.count %></th>
-      <th class="text-center"><%= records.created_last_tuesday.count %></th>
-      <th class="text-center"><%= records.created_last_wednesday.count %></th>
-      <th class="text-center"><%= records.created_last_thursday.count %></th>
-      <th class="text-center"><%= records.created_last_friday.count %></th>
-      <th class="text-center"><%= records.created_last_saturday.count %></th>
-      <th class="text-center"><%= records.created_last_sunday.count %></th>
+      <th class="text-center"><%= Record.created_last_monday.count %></th>
+      <th class="text-center"><%= Record.created_last_tuesday.count %></th>
+      <th class="text-center"><%= Record.created_last_wednesday.count %></th>
+      <th class="text-center"><%= Record.created_last_thursday.count %></th>
+      <th class="text-center"><%= Record.created_last_friday.count %></th>
+      <th class="text-center"><%= Record.created_last_saturday.count %></th>
+      <th class="text-center"><%= Record.created_last_sunday.count %></th>
     </tr>
   </tbody>
 </table>
@@ -46,13 +46,13 @@
   </thead>
   <tbody>
     <tr>
-      <td class="text-center"><%= records.created_this_week.count %></td>
-      <td class="text-center"><%= records.created_last_week.count %></td>
-      <% if records.created_last_week.count == 0 %>
+      <td class="text-center"><%= Record.created_this_week.count %></td>
+      <td class="text-center"><%= Record.created_last_week.count %></td>
+      <% if Record.created_last_week.count == 0 %>
         <td></td>
       <% else %>
         <td class="text-center">
-          <% comparison = records.created_this_week.count / records.created_last_week.count.to_f  %>
+          <% comparison = Record.created_this_week.count / Record.created_last_week.count.to_f  %>
           <%= (comparison * 100).round %>%
         </td>
       <% end %>
@@ -70,13 +70,13 @@
   </thead>
   <tbody>
     <tr>
-      <td class="text-center"><%= records.created_this_month.count %></td>
-      <td class="text-center"><%= records.created_prev_year_month.count %></td>
-      <% if records.created_prev_year_month.count == 0 %>
+      <td class="text-center"><%= Record.created_this_month.count %></td>
+      <td class="text-center"><%= Record.created_prev_year_month.count %></td>
+      <% if Record.created_prev_year_month.count == 0 %>
         <td></td>
       <% else %>
         <td class="text-center">
-          <% year_comparison = records.created_this_month.count / records.created_prev_year_month.count.to_f  %>
+          <% year_comparison = Record.created_this_month.count / Record.created_prev_year_month.count.to_f  %>
           <%= (year_comparison * 100).round %>%
         </td>
       <% end %>
