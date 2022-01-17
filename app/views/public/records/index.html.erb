@@ -26,7 +26,14 @@
         <% end %>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
       <%= render 'index', records: Record.page(params[:page]).reverse_order.per(9) %>
+    </div>
+    <div class="col-lg-6">
+      <%= render 'comparison', records: Record.all %>
     </div>
   </div>
 </div>
