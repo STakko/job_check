@@ -6,7 +6,6 @@ class Admin::RecordsController < ApplicationController
     @workers = Worker.all
     @clients = Client.all
     @records = @q.result.includes(:worker, :client).order(created_at: :desc)
-    @record_monday = Record.where(created_at: Time.zone.now.beginning_of_week.all_day)
   end
 
   def show

@@ -10,32 +10,79 @@ class Record < ApplicationRecord
   validates :body, presence: true
 
   #今週(曜日単体)
-  scope :created_sunday, lambda { where(created_at: Time.zone.now.beginning_of_week.since(6.days).all_day) }
-  scope :created_monday, lambda { where(created_at: Time.zone.now.beginning_of_week.all_day) }
-  scope :created_tuesday, lambda { where(created_at: Time.zone.now.beginning_of_week.since(1.days).all_day) }
-  scope :created_wednesday, lambda { where(created_at: Time.zone.now.beginning_of_week.since(2.days).all_day) }
-  scope :created_thursday, lambda { where(created_at: Time.zone.now.beginning_of_week.since(3.days).all_day) }
-  scope :created_friday, lambda { where(created_at: Time.zone.now.beginning_of_week.since(4.days).all_day) }
-  scope :created_saturday, lambda { where(created_at: Time.zone.now.beginning_of_week.since(5.days).all_day) }
+  def self.created_sunday
+    Record.where(created_at: Time.zone.now.beginning_of_week.since(6.days).all_day)
+  end
+
+  def self.created_monday
+    Record.where(created_at: Time.zone.now.beginning_of_week.all_day)
+  end
+
+  def self.created_tuesday
+    Record.where(created_at: Time.zone.now.beginning_of_week.since(1.days).all_day)
+  end
+
+  def self.created_wednesday
+    Record.where(created_at: Time.zone.now.beginning_of_week.since(2.days).all_day)
+  end
+
+  def self.created_thursday
+    Record.where(created_at: Time.zone.now.beginning_of_week.since(3.days).all_day)
+  end
+
+  def self.created_friday
+    Record.where(created_at: Time.zone.now.beginning_of_week.since(4.days).all_day)
+  end
+
+  def self.created_saturday
+    Record.where(created_at: Time.zone.now.beginning_of_week.since(5.days).all_day)
+  end
   #先週(曜日単体)
-  scope :created_last_sunday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(6.days).all_day) }
-  scope :created_last_monday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.all_day) }
-  scope :created_last_tuesday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(1.days).all_day) }
-  scope :created_last_wednesday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(2.days).all_day) }
-  scope :created_last_thursday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(3.days).all_day) }
-  scope :created_last_friday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(4.days).all_day) }
-  scope :created_last_saturday, lambda { where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(5.days).all_day) }
+  def self.created_last_sunday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(6.days).all_day)
+  end
+
+  def self.created_last_monday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.all_day)
+  end
+
+  def self.created_last_tuesday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(1.days).all_day)
+  end
+
+  def self.created_last_wednesday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(2.days).all_day)
+  end
+
+  def self.created_last_thursday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(3.days).all_day)
+  end
+
+  def self.created_last_friday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(4.days).all_day)
+  end
+
+  def self.created_last_saturday
+    Record.where(created_at: (Time.zone.now - 1.week).beginning_of_week.since(5.days).all_day)
+  end
   #今週
-  scope :created_this_week, lambda { where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week) }
+  def self.created_this_week
+    Record.where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+  end
   #先週
-  scope :created_last_week, lambda { where(created_at: 1.week.ago.beginning_of_week..1.week.ago.end_of_week) }
+  def self.created_last_week
+    Record.where(created_at: 1.week.ago.beginning_of_week..1.week.ago.end_of_week)
+  end
   #今月
-  scope :created_this_month, lambda { where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month) }
+  def self.created_this_month
+    Record.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+  end
   #前年(月単位)
-  scope :created_prev_year_month, lambda { where(created_at: Time.zone.now.prev_year.beginning_of_month..Time.zone.now.prev_year.end_of_month) }
+  def self.created_prev_year_month
+    Record.where(created_at: Time.zone.now.prev_year.beginning_of_month..Time.zone.now.prev_year.end_of_month)
+  end
 
-
-
+  #確認ボタン
   def confirmationed_by?(record)
     confirmations.where(record_id: record.id).exists?
   end
