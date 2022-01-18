@@ -199,7 +199,7 @@ footer{
 }
 
 //ハンバーガーメニュー
-@media (max-width: 990px){
+@media screen and (max-width: 990px){
  #hm-icon {
   position: fixed;
   right: 20px;
@@ -293,7 +293,7 @@ footer{
 
 
 //スマートフォンの画面
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
  //共通
  .container{
   width: 100%;
