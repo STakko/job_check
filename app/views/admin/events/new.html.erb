@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class"row">
-    <div class="col-6 mx-auto">
+    <div class="col-lg-6 mx-auto">
       <h2 class="my-4">スケジュール新規登録</h2>
       <table class="table">
         <%= form_with model: @event, url: admin_events_path, local: true do |f| %>
@@ -18,13 +18,18 @@
           <td><%= f.text_area :content, size:'50x4', class: 'form-control' %></td>
         </tr>
         <tr>
-          <td class="text-center">予定時刻＊</td>
+          <td class="text-center">時刻＊</td>
           <td><%= f.datetime_select :start_time %></td>
         </tr>
         <tr>
-          <td class="text-center"><%= link_to '戻る', admin_events_path, class:"btn btn-outline-dark" %></td>
+          <td class="text-center"></td>
           <td class="text-center"><%= f.submit '登録', class:"btn btn-outline-success" %></td>
         </tr>
+        <tr>
+          <td class="text-center"></td>
+          <td class="text-center"><%= link_to '戻る', admin_events_path, class:"btn btn-outline-dark" %></td>
+        </tr>
+
         <% end %>
       </table>
     </div>

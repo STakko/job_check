@@ -1,6 +1,6 @@
 <table class='table'>
   <thead class="thead-dark">
-    <tr>
+    <tr class="record-thead">
       <th class="text-center">取引先名</th>
       <th class="text-center">作業者</th>
       <th class="text-center">作業名</th>
@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <% records.each do |record| %>
-      <tr>
+      <tr class="record-tbody">
         <td class="text-center"><%= record.client.name %></td>
         <td class="text-center"><%= record.worker.name %></td>
         <td class="text-center"><%= link_to record.name, record_path(record) %></td>
