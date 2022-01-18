@@ -130,10 +130,27 @@ footer{
  margin-bottom: 20px;
 }
 
-.thankyou{
- margin-top: 260px;
+.done-row {
+ height: 350px;
 }
 
+.done-col {
+ width: 600px;
+}
+
+.thankyou{
+ text-align: center;
+ margin-top: 200px;
+}
+
+.thankyou-responsive{
+ display: none;
+}
+
+.done-back {
+ text-align: center;
+ margin-top: 50px;
+}
 //events
 .new-event{
  width: 100%;
@@ -178,7 +195,7 @@ footer{
 }
 
 .worker-back{
- margin: 30px 0 0 300px;
+ margin: 30px 0 0 275px;
 }
 
 //ハンバーガーメニュー
@@ -277,6 +294,36 @@ footer{
 
 //スマートフォンの画面
 @media (max-width: 425px) {
+ //共通
+ .container{
+  width: 100%;
+  max-width: 100%;
+ }
+
+ .row{
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ .col{
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ .col-lg-6{
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ .col-lg-8 {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
  //header
 .application-logo{
  display: none;
@@ -298,4 +345,75 @@ footer{
   background-size: cover;
   background-position: center;
 }
+//records
+.search-form-group{
+ display: block;
+}
+
+.record-thead th:nth-child(4) {
+ display: none;
+}
+
+.record-thead th:nth-child(5) {
+ display: none;
+}
+
+.record-tbody td:nth-child(4) {
+ display: none;
+}
+
+.record-tbody td:nth-child(5) {
+ display: none;
+}
+
+//client
+.client-thead th:nth-child(3){
+ display: none;
+}
+
+.client-tbody td:nth-child(3){
+ display: none;
+}
+
+.client-form-address {
+ width: 100%;
+ max-width: 100%;
+}
+
+.record-edit-form-group {
+ width: 100%;
+ max-width: 100%;
+}
+
+.record-edit-body {
+ width: 400px;
+}
+
+//contact
+.done-row {
+ width: 100%;
+ max-width: 100%;
+}
+
+.done-col{
+ width: 100%;
+ max-width: 100%;
+}
+
+.thankyou{
+ display: none;
+}
+
+.thankyou-responsive {
+ display: block;
+ text-align: center;
+ margin-top: 100px;
+}
+
+.done-back {
+ width: 100%;
+ max-width: 100%;
+ text-align: center;
+}
+
 }

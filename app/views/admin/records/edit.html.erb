@@ -2,48 +2,51 @@
   <div class"row">
     <div class="col-lg-8 mx-auto">
       <h2 class="mt-4">作業記録編集</h2>
-      <div class="form-group">
+      <div class="record-edit-form-group">
         <table class="table">
           <thead>
+            <th></th>
+            <th></th>
+            <th></th>
             <th></th>
             <th></th>
           </thead>
           <tbody>
             <%= form_with model:@record, url:admin_record_path(@record), local:true do |f| %>
             <tr>
-              <td>作業名</td>
-              <td><%= f.text_field :name, placeholder: "作業名を入力" %></td>
+              <td colspan="4">作業名</td>
+              <td><%= f.text_field :name, placeholder: "作業名を入力", class: 'form-control' %></td>
             </tr>
             <tr>
-              <td>作業者</td>
+              <td colspan="4">作業者</td>
               <td><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
             </tr>
             <tr>
-              <td>取引先</td>
+              <td colspan="4">取引先</td>
               <td><%= f.select :client_id, options_from_collection_for_select(Client.all, :id, :name) %></td>
             </tr><tr>
-              <td>作業内容</td>
-              <td><%= f.text_area :body, placeholder: "作業内容を入力", size:"60x5" %></td>
+              <td colspan="4" class="record-edit-body">作業内容</td>
+              <td><%= f.text_area :body, placeholder: "作業内容を入力", size:"50x5", class: 'form-control' %></td>
             </tr>
             <tr>
-              <td>写真</td>
+              <td colspan="4">写真</td>
               <td><%= f.attachment_field :image %></td>
             </tr>
             <% if @record.start_time != nil %>
             <tr>
-              <td>開始時刻</td>
+              <td colspan="4">開始時刻</td>
               <td><%= f.datetime_select :start_time %></td>
             </tr>
             <% end %>
             <% if @record.finish_time != nil %>
             <tr>
-              <td>終了時刻</td>
+              <td colspan="4">終了時刻</td>
               <td><%= f.datetime_select :finish_time %></td>
             </tr>
             <% end %>
             <tr>
-              <td><%= link_to "戻る", admin_record_path(@record), class:"btn btn-dark" %></td>
-              <td><%= f.submit ' 変更を保存 ', class:"btn btn-success" %></td>
+              <td colspan="4" class="text-center"><%= link_to "戻る", admin_record_path(@record), class:"btn btn-dark" %></td>
+              <td class="text-center"><%= f.submit ' 変更を保存 ', class:"btn btn-success" %></td>
             </tr>
             <% end %>
           </tbody>

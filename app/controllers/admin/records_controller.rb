@@ -46,7 +46,6 @@ class Admin::RecordsController < ApplicationController
 
   def record_params
     params.require(:record).permit(:name, :body, :woker_id, :client_id, :image, :start_time, :finish_time, :work_status)
-    @records = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).reverse_order.per(9)
   end
 
   def search_params
