@@ -156,6 +156,11 @@ footer{
  width: 100%;
  margin: 29px auto;
 }
+
+.event-show{
+ width: 100%;
+ margin: 29px auto;
+}
 //records
 .search-form-group {
  justify-content: center;
@@ -201,7 +206,7 @@ footer{
 //ハンバーガーメニュー
 @media screen and (max-width: 990px){
  #hm-icon {
-  position: fixed;
+  position: absolute;
   right: 20px;
   top: 20px;
   z-index: 10;
@@ -348,6 +353,25 @@ footer{
 //records
 .search-form-group{
  display: block;
+ text-align: center;
+}
+
+.search-form {
+ display: block;
+}
+
+.records-new-group{
+ display: block;
+ text-align: center;
+}
+
+.records-new {
+ display: none;
+}
+
+.date-search-form{
+ display: flex;
+ flex: wrap;
 }
 
 .record-thead th:nth-child(4) {
@@ -416,4 +440,22 @@ footer{
  text-align: center;
 }
 
+//worker
+.worker-form-group{
+ display: block;
+ text-align: center;
+}
+
+.worker-submit {
+ margin: 10px auto;
+}
+
+.worker-back {
+ margin: 10px auto;
+}
+
+//contact
+.confilm-submit{
+ margin: 0 auto;
+}
 }

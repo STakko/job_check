@@ -1,20 +1,20 @@
 <div class="container">
   <div class"row">
-    <div class="col-6 mx-auto">
+    <div class="col-lg-6 mx-auto">
       <h2 class="mt-4">予定編集</h2>
       <table class="table">
         <%= form_with model: @event, url: admin_event_path, local: true do |f| %>
         <tr>
           <td class="text-center">作業者</td>
-          <td><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
+          <td style="white-space: pre-wrap;"><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
         </tr>
         <tr>
           <td class="text-center">要件</td>
-          <td><%= f.text_field :title, autofocus: true, class: 'form-control' %></td>
+          <td style="white-space: pre-wrap;"><%= f.text_field :title, autofocus: true, class: 'form-control' %></td>
         </tr>
         <tr>
           <td class="text-center">内容</td>
-          <td><%= f.text_area :content, size:'50x4', class: 'form-control' %></td>
+          <td style="white-space: pre-wrap;"><%= f.text_area :content, size:'50x4', class: 'form-control' %></td>
         </tr>
         <tr>
           <td class="text-center">予定時刻</td>

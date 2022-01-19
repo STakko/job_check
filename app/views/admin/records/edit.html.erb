@@ -1,6 +1,6 @@
 <div class="container">
   <div class"row">
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-6 mx-auto">
       <h2 class="mt-4">作業記録編集</h2>
       <div class="record-edit-form-group">
         <table class="table">
@@ -15,11 +15,11 @@
             <%= form_with model:@record, url:admin_record_path(@record), local:true do |f| %>
             <tr>
               <td colspan="4">作業名</td>
-              <td><%= f.text_field :name, placeholder: "作業名を入力", class: 'form-control' %></td>
+              <td style="white-space: pre-wrap;"><%= f.text_field :name, placeholder: "作業名を入力", class: 'form-control' %></td>
             </tr>
             <tr>
               <td colspan="4">作業者</td>
-              <td><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
+              <td style="white-space: pre-wrap;"><%= f.select :worker_id, options_from_collection_for_select(Worker.all, :id, :name) %></td>
             </tr>
             <tr>
               <td colspan="4">取引先</td>

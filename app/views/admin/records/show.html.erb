@@ -74,7 +74,7 @@
             <% end %>
           <% end %>
           <tr>
-            <td class="text-center"><%= link_to :back do %><button class="btn btn-dark">戻る</button><% end %></td>
+            <td class="text-center"><%= link_to "戻る", admin_records_path, class:"btn btn-dark" %></td>
             <td class="text-center"><%= link_to "編集", edit_admin_record_path(@record), class:"btn btn-warning" %></td>
           </tr>
         </tbody>
