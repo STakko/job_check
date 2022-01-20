@@ -19,4 +19,5 @@ class Admin::AdminCommentsController < ApplicationController
   def admin_comment_params
     params.require(:admin_comment).permit(:comment)
   end
+  
 end
