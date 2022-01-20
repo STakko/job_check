@@ -1,31 +1,36 @@
 <div class="container">
   <div class"row">
-    <div class="col-6 mx-auto">
-      <h2 class="my-4">予定詳細</h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td class="text-center">要件</td>
-            <td class="text-center"><%= @event.title %></td>
-          </tr>
-          <tr>
-            <td class="text-center">予定作業者</td>
-            <td class="text-center"><%= @event.worker.name %></td>
-          </tr>
-          <tr>
-            <td class="text-center">内容</td>
-            <td><%= @event.content %></td>
-          </tr>
-          <tr>
-            <td class="text-center">予定時刻</td>
-            <td class="text-center"><%= @event.start_time.strftime('%H:%M') %></td>
-          </tr>
-          <tr>
-            <td class="text-center"><%= link_to '戻る', admin_events_path, class:"btn btn-dark" %></td>
-            <td class="text-center"><%= link_to '編集', edit_admin_event_path, class:"btn btn-warning" %></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-lg-6 mx-auto">
+      <div class="event-show">
+        <h2 class="my-4">予定詳細</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="text-center">要件</td>
+              <td class="text-center"><%= @event.title %></td>
+            </tr>
+            <tr>
+              <td class="text-center">予定作業者</td>
+              <td class="text-center"><%= @event.worker.name %></td>
+            </tr>
+            <tr>
+              <td class="text-center">内容</td>
+              <td><%= @event.content %></td>
+            </tr>
+            <tr>
+              <td class="text-center">予定時刻</td>
+              <td class="text-center"><%= @event.start_time.strftime('%H:%M') %></td>
+            </tr>
+            <tr>
+              <td class="text-center"><%= link_to '戻る', admin_events_path, class:"btn btn-dark" %></td>
+              <td class="text-center"><%= link_to '編集', edit_admin_event_path, class:"btn btn-warning" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
