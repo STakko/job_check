@@ -1,0 +1,8 @@
+<td class="text-center">
+  開始時刻
+</td>
+<td class="text-center">
+  <% if record.start_time != nil %>
+    <%= record.start_time.strftime( "%H:%M" ) %>
+  <% end %>
+</td>

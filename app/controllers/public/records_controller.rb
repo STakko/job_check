@@ -27,14 +27,13 @@ class Public::RecordsController < ApplicationController
   end
 
   def update
-    record = Record.find(params[:id])
-    record.update(record_params)
-    if record.work_status == 'waiting_work'
-      record.update(work_status: 1)
-    elsif record.work_status == 'start_work'
-      record.update(work_status: 2)
+    @record = Record.find(params[:id])
+    @record.update(record_params)
+    if @record.work_status == 'waiting_work'
+      @record.update(work_status: 1)
+    elsif @record.work_status == 'start_work'
+      @record.update(work_status: 2)
     end
-    redirect_to record_path(record)
   end
 
   def worker_search

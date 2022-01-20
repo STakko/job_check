@@ -1,0 +1,4 @@
+$('#work_status_<%= @record.id %>').html("<%= j(render "public/records/work_status", record: @record ) %>");
+$('#start_time_<%= @record.id %>').html("<%= j(render "public/records/start_time", record: @record, admin_comment: @admin_comment ) %>");
+$('#finish_time_<%= @record.id %>').html("<%= j(render "public/records/finish_time", record: @record, admin_comment: @admin_comment ) %>");
+$('#working_time_<%= @record.id %>').html("<%= j(render "public/records/working_time", record: @record, admin_comment: @admin_comment ) %>");

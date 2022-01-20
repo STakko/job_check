@@ -32,11 +32,18 @@
             <td class="text-center">作業登録日時</td>
             <td class="text-center"><%= @record.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
-          <tr>
-            <td class="text-center">作業フェーズ</td>
-            <td class="text-center"><%= @record.work_status_i18n %></td>
+          <tr id="work_status_<%= @record.id %>">
+            <%= render 'work_status', record: @record %>
           </tr>
-          <%= render 'time', record: @record %>
+          <tr id="start_time_<%= @record.id %>">
+            <%= render 'start_time', record: @record %>
+          </tr>
+          <tr id="finish_time_<%= @record.id %>">
+            <%= render 'finish_time', record: @record %>
+          </tr>
+          <tr id="working_time_<%= @record.id %>">
+            <%= render 'working_time', record: @record %>
+          </tr>
           <tr>
             <td class="text-center"><%= link_to '戻る', records_path, class:"btn btn-dark" %></td>
             <td></td>

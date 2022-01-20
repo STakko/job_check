@@ -1,3 +1,4 @@
+<div class="comment-group">
   <div class="comment-form">
     <%= form_with model:[record, admin_comment], url: admin_record_admin_comments_path(record), remote: true do |f| %>
     <%= f.text_field :comment, placeholder: "コメントをここに", class:"form-control"%>
@@ -6,3 +7,4 @@
     <%= f.submit "送信", class:"btn btn-outline-success" %>
     <% end %>
   </div>
+</div>
