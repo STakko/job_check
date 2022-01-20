@@ -56,23 +56,12 @@
           </tr>
           <% end %>
 
-          <tr>
-            <td class="text-center">作業フェーズ</td>
-            <td class="text-center"><%= @record.work_status_i18n %></td>
+          <tr id="work_status_<%= @record.id %>">
+            <%= render "admin/confirmations/work_status", record: @record %>
           </tr>
-          <% if @record.work_status == 'finish_work' || @record.work_status == 'confirmed_work' %>
-            <% if @record.confirmationed_by?(@record) %>
-            <tr>
-              <td class="text-center">確認取消</td>
-              <td class="text-center"><%= link_to "取消", admin_record_confirmation_path(@record), method: :delete, class:"btn btn-outline-danger" %></td>
-            </tr>
-            <% else %>
-            <tr>
-              <td class="text-center">確認する</td>
-              <td class="text-center"><%= link_to "確認", admin_record_confirmation_path(@record), method: :post, class:"btn btn-outline-success" %></td>
-            </tr>
-            <% end %>
-          <% end %>
+          <tr id="confirmation_buttons_<%= @record.id %>">
+            <%= render "admin/confirmations/confirmation", record: @record %>
+          </tr>
           <tr>
             <td class="text-center"><%= link_to "戻る", admin_records_path, class:"btn btn-dark" %></td>
             <td class="text-center"><%= link_to "編集", edit_admin_record_path(@record), class:"btn btn-warning" %></td>
@@ -84,16 +73,11 @@
       <%= render 'p_comment', record: @record %>
     </div>
     <div class="col-lg-3">
-      <%= render 'a_comment', record: @record %>
-      <div class="comment-form-group">
-        <div class="comment-form">
-          <%= form_with model:[@record, @admin_comment], url: admin_record_admin_comments_path(@record), local: true do |f| %>
-          <%= f.text_field :comment,placeholder: "コメントをここに", class:"form-control"%>
-        </div>
-        <div class="comment-submit">
-          <%= f.submit "送信", class:"btn btn-outline-success" %>
-          <% end %>
-        </div>
+      <div id="admin_comment_<%= @record.id %>">
+        <%= render 'admin/admin_comments/a_comment', record: @record, admin_comment: @admin_comment %>
+      </div>
+      <div id="comment-form-group_<%= @record.id %>">
+        <%= render 'admin/admin_comments/comment_form', record: @record, admin_comment: @admin_comment %>
       </div>
     </div>
   </div>
