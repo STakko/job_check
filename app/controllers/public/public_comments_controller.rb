@@ -10,6 +10,7 @@ class Public::PublicCommentsController < ApplicationController
   end
 
   def destroy
+    @record = Record.find(params[:record_id])
     PublicComment.find_by(id: params[:id], record_id: params[:record_id]).destroy
     @public_comment = PublicComment.new
   end
