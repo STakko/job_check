@@ -15,6 +15,8 @@
  *= require_self
  */
  @import "bootstrap";
+
+
 //共通
 .h-550 {
  height: 550px;
@@ -28,7 +30,14 @@
     box-sizing: border-box;
 }
 
+.pagination {
+  justify-content: center;
+}
+
 //header
+ .application-logo{
+  display: flex;
+ }
  .namazu_bousai {
   margin: 0;
   padding: 0;
@@ -40,8 +49,12 @@
   background-position: center;
 }
 
-.pagination {
-  justify-content: center;
+.application-logo-responsive{
+ display: none;
+}
+
+#sp-menu {
+ display: none;
 }
 
 //footer
@@ -117,12 +130,34 @@ footer{
  margin-bottom: 20px;
 }
 
-.thankyou{
- margin-top: 260px;
+.done-row {
+ height: 350px;
 }
 
+.done-col {
+ width: 600px;
+}
+
+.thankyou{
+ text-align: center;
+ margin-top: 200px;
+}
+
+.thankyou-responsive{
+ display: none;
+}
+
+.done-back {
+ text-align: center;
+ margin-top: 50px;
+}
 //events
 .new-event{
+ width: 100%;
+ margin: 29px auto;
+}
+
+.event-show{
  width: 100%;
  margin: 29px auto;
 }
@@ -165,5 +200,262 @@ footer{
 }
 
 .worker-back{
- margin: 30px 0 0 300px;
+ margin: 30px 0 0 275px;
+}
+
+//ハンバーガーメニュー
+@media screen and (max-width: 990px){
+ #hm-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-child(1) {
+  top: 0;
+  background-color: #fff;
+}
+
+.menu-trigger span:nth-child(2) {
+  top: 20px;
+  background-color: #fff;
+}
+
+.menu-trigger span:nth-child(3) {
+  bottom: 0;
+  background-color: #fff;
+}
+
+.menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #fff;
+}
+
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: #fff;
+}
+
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #708090;
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+
+#sp-menu li {
+  text-align: center;
+  margin-bottom: 30px;
+  list-style-type: none;
+}
+
+#sp-menu  {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-title{
+  text-align: center;
+  margin: 50px 0;
+}
+
+}
+
+
+//スマートフォンの画面
+@media screen and (max-width: 425px) {
+ //共通
+ .container{
+  width: 100%;
+  max-width: 100%;
+ }
+
+ .row{
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ .col{
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ .col-lg-6{
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ .col-lg-8 {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+ }
+
+ //header
+.application-logo{
+ display: none;
+ height: 70px;
+ width: auto;
+}
+
+.application-logo-responsive{
+ display: block;
+}
+
+.fish_namazu {
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  background-image: image-url("fish_namazu.png");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+//records
+.search-form-group{
+ display: block;
+ text-align: center;
+}
+
+.search-form {
+ display: block;
+}
+
+.records-new-group{
+ display: block;
+ text-align: center;
+}
+
+.records-new {
+ display: none;
+}
+
+.date-search-form{
+ display: flex;
+ flex: wrap;
+}
+
+.record-thead th:nth-child(4) {
+ display: none;
+}
+
+.record-thead th:nth-child(5) {
+ display: none;
+}
+
+.record-tbody td:nth-child(4) {
+ display: none;
+}
+
+.record-tbody td:nth-child(5) {
+ display: none;
+}
+
+//client
+.client-thead th:nth-child(3){
+ display: none;
+}
+
+.client-tbody td:nth-child(3){
+ display: none;
+}
+
+.client-form-address {
+ width: 100%;
+ max-width: 100%;
+}
+
+.record-edit-form-group {
+ width: 100%;
+ max-width: 100%;
+}
+
+.record-edit-body {
+ width: 400px;
+}
+
+//contact
+.done-row {
+ width: 100%;
+ max-width: 100%;
+}
+
+.done-col{
+ width: 100%;
+ max-width: 100%;
+}
+
+.thankyou{
+ display: none;
+}
+
+.thankyou-responsive {
+ display: block;
+ text-align: center;
+ margin-top: 100px;
+}
+
+.done-back {
+ width: 100%;
+ max-width: 100%;
+ text-align: center;
+}
+
+//worker
+.worker-form-group{
+ display: block;
+ text-align: center;
+}
+
+.worker-submit {
+ margin: 10px auto;
+}
+
+.worker-back {
+ margin: 10px auto;
+}
+
+//contact
+.confilm-submit{
+ margin: 0 auto;
+}
 }

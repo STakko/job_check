@@ -28,7 +28,7 @@
         <%= f.text_area :message, size: '10x10', class: 'form-control' %>
       </div>
       <div class="contact-button">
-        <div class="contact-back"><%= link_to :back do %><button class="btn btn-dark">戻る</button><% end %></div>
+        <div class="contact-back"><%= link_to '戻る', admin_path, class:"btn btn-dark" %></div>
         <div class="contact-submit"><%= f.submit '入力内容確認', class:"btn btn-info" %></div>
       </div>
       <% end %>
