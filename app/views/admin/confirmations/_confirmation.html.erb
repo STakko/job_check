@@ -1,0 +1,9 @@
+<% if record.work_status == 'finish_work' || record.work_status == 'confirmed_work' %>
+  <% if record.confirmationed_by?(record) %>
+      <td class="text-center">確認取消</td>
+      <td class="text-center"><%= link_to "取消", admin_record_confirmation_path(record), method: :delete, remote: true, class:"btn btn-outline-danger" %></td>
+  <% else %>
+      <td class="text-center">確認する</td>
+      <td class="text-center"><%= link_to "確認", admin_record_confirmation_path(record), method: :post, remote: true, class:"btn btn-outline-success" %></td>
+  <% end %>
+<% end %>

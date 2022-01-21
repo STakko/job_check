@@ -1,0 +1,8 @@
+<div class="comment-group">
+  <%= form_with model:[record, public_comment], url: record_public_comments_path(record), remote: true do |f| %>
+  <div class="comment-form">
+    <%= f.text_field :comment,placeholder: "コメントをここに", class:"form-control"%>
+    <%= f.submit "送信", class:"btn btn-outline-success" %>
+  </div>
+  <% end %>
+</div>

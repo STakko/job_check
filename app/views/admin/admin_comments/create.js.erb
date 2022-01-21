@@ -1,0 +1,3 @@
+$('#admin_comment_<%= @record.id %>').html("<%= j(render "admin/admin_comments/a_comment", record: @record, admin_comment: @admin_comment) %>");
+$('#comment-form-group_<%= @record.id %>').html("<%= j(render "admin/admin_comments/comment_form", record: @record, admin_comment: @admin_comment) %>");
+$('#comment-form-group_<%= @record.id %>').val('')

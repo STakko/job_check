@@ -1,0 +1,2 @@
+$('#work_status_<%= @record.id %>').html("<%= j(render "admin/confirmations/work_status", record: @record) %>");
+$('#confirmation_buttons_<%= @record.id %>').html("<%= j(render "admin/confirmations/confirmation", record: @record) %>");
