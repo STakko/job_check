@@ -5,6 +5,14 @@
 紙媒体で行われている作業をネット上で行い、
 記録と管理を効率的に行うことが目的のサイト
 
+-共同アカウント
+email:test@test.com
+password:000000
+-管理者アカウント
+email:admin@test.com
+password:111111
+
+
 ### サイトテーマ
 職場内の作業記録を簡単に登録、管理できるサイト
 
@@ -44,4 +52,4 @@ https://docs.google.com/spreadsheets/d/1E4orAZzQ9OaX3uQagR78W9YPiPKav8jqwS5CrCLA
 
 ## 使用素材
 - namazu_bousai いらすとや(https://www.irasutoya.com/2013/07/blog-post_2291.html)
-- fish_namazu いらすとや（https://www.irasutoya.com/2013/07/blog-post_9310.html）
+- fish_namazu いらすとや(https://www.irasutoya.com/2013/07/blog-post_9310.html)
