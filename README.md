@@ -5,14 +5,6 @@
 紙媒体で行われている作業をネット上で行い、
 記録と管理を効率的に行うことが目的のサイト
 
--共同アカウント
-email:test@test.com
-password:000000
--管理者アカウント
-email:admin@test.com
-password:111111
-
-
 ### サイトテーマ
 職場内の作業記録を簡単に登録、管理できるサイト
 
@@ -42,6 +34,15 @@ https://docs.google.com/spreadsheets/d/1pZug1CW24o3Pwr_7XXJ-nJxepBVPXLTNfUt5CmMe
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1E4orAZzQ9OaX3uQagR78W9YPiPKav8jqwS5CrCLADJI/edit#gid=0
+
+## ログインemailとpassword
+共同アカウント  
+email:test@test.com  
+password:000000  
+管理者アカウント  
+email:admin@test.com  
+password:111111  
+
 
 ## 開発環境
 - OS：Linux(CentOS)
