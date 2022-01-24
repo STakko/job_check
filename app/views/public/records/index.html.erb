@@ -18,7 +18,7 @@
           <%= f.submit '取引先で検索', class: "btn btn-primary" %>
         <% end %>
         </div>
-        <div class="date-search-form">
+        <div class="search-form">
         <%= search_form_for @q, url: p_date_search_path, local: true do |f| %>
           <%= f.date_field :created_at_gteq, include_blank: true, class: 'date-edit' %>~
           <%= f.date_field :created_at_lteq_end_of_day, include_blank: true, class: 'date-edit' %>
