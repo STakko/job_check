@@ -33,7 +33,7 @@
           <li><%= link_to 'ログアウト', destroy_shared_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
         <% elsif admin_signed_in? %>
           <li><%= link_to '作業記録一覧', admin_records_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to '作業者一覧', admin_workers_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to '従業員名簿', admin_workers_path, class: 'nav-link text-light' %></li>
           <li><%= link_to '取引先一覧', admin_clients_path, class: 'nav-link text-light'%></li>
           <li><%= link_to 'スケジュール', admin_events_path, class: 'nav-link text-light'%></li>
           <li><%= link_to 'スケジュールを追加', new_admin_event_path, class: 'nav-link text-light' %></li>
@@ -62,7 +62,7 @@
           <li class="nav-list"><%= link_to 'ログアウト', destroy_shared_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
         <% elsif admin_signed_in? %>
           <li class="nav-list"><%= link_to '作業記録一覧', admin_records_path, class: 'nav-link text-light' %></li>
-          <li class="nav-list"><%= link_to '作業者一覧', admin_workers_path, class: 'nav-link text-light' %></li>
+          <li class="nav-list"><%= link_to '従業員', admin_workers_path, class: 'nav-link text-light' %></li>
           <li class="nav-list"><%= link_to '取引先一覧', admin_clients_path, class: 'nav-link text-light'%></li>
           <li class="nav-list"><%= link_to 'スケジュール', admin_events_path, class: 'nav-link text-light'%></li>
           <li class="nav-list"><%= link_to 'お問い合わせ', new_admin_contact_path, class: 'nav-link text-light'%></li>
