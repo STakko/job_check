@@ -48,6 +48,12 @@ class Public::RecordsController < ApplicationController
       @record.update(work_status: 2)
     end
   end
+  
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+    redirect_to records_path
+  end
 
   def worker_search
     @q = Record.search(search_params)

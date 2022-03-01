@@ -26,6 +26,12 @@ class Admin::RecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+    redirect_to admin_records_path
+  end
+
   def worker_search
     @q = Record.search(search_params)
     @records = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).reverse_order.per(9)
