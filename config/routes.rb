@@ -34,11 +34,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     resources :events, only: [:index, :show]
-    resources :records, except: [:destroy, :edit] do
+    resources :records do
       resources :public_comments, only: [:create, :destroy]
     end
   end
-
+  patch 'record_update/:id', to: 'public/records#record_update', as: 'record_update'
   get 'p_worker_search', to: 'public/records#worker_search'
   get 'p_client_search', to: 'public/records#client_search'
   get 'p_date_search', to: 'public/records#date_search'

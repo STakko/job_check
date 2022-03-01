@@ -26,6 +26,19 @@ class Public::RecordsController < ApplicationController
     @public_comment = PublicComment.new
   end
 
+  def edit
+    @record = Record.find(params[:id])
+  end
+
+  def record_update
+    @record = Record.find(params[:id])
+    if @record.update(record_params)
+      redirect_to record_path(@record)
+    else
+      render :edit
+    end
+  end
+
   def update
     @record = Record.find(params[:id])
     @record.update(record_params)
